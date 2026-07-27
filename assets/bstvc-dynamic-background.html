@@ -1,0 +1,569 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="BSTVC 官网背景方案 A 时空呼吸终稿">
+  <title>BSTVC 官网背景｜方案 A 时空呼吸｜终稿 V01</title>
+  <style>
+:root {
+  color-scheme: dark;
+  --cyan: #3fe9ff;
+  --blue: #1d78ff;
+  --violet: #a05bf5;
+  --orange: #ff8f54;
+}
+
+* { box-sizing: border-box; }
+html, body { width: 100%; height: 100%; margin: 0; overflow: hidden; background: #01040d; }
+body { font-family: Inter, "Segoe UI", "Microsoft YaHei", sans-serif; }
+
+#bstvc-background {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  isolation: isolate;
+  background: #01040d;
+}
+
+#scene {
+  position: absolute;
+  inset: -1.8%;
+  transform-origin: center;
+  will-change: transform;
+}
+
+#source-art,
+#motion-overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#motion-overlay {
+  overflow: visible;
+  pointer-events: none;
+}
+
+#source-art {
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+#spatial-grid,
+#earth-texture,
+#earth-sheen,
+#relation-layer,
+#time-layer,
+#beta-field,
+#star-field {
+  transform-box: view-box;
+}
+
+#spatial-grid {
+  transform-origin: 474px 691px;
+  mix-blend-mode: screen;
+}
+
+#earth-texture {
+  transform-origin: 474px 691px;
+  will-change: transform;
+}
+
+#earth-sheen,
+#relation-silhouette,
+#relation-sweep,
+#relation-return,
+.moon-halo,
+.moon-spark {
+  mix-blend-mode: screen;
+}
+
+.beta-node {
+  transform-box: fill-box;
+  transform-origin: center;
+  mix-blend-mode: screen;
+  will-change: opacity, transform, filter;
+}
+
+#relation-sweep,
+#time-axis {
+  vector-effect: non-scaling-stroke;
+}
+
+.shade {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, rgba(0, 3, 10, 0.14), transparent 34%, transparent 82%, rgba(0, 4, 13, 0.12)),
+    linear-gradient(180deg, rgba(0, 2, 8, 0.08), transparent 68%, rgba(0, 2, 8, 0.20));
+}
+
+.controls {
+  position: fixed;
+  right: 22px;
+  bottom: 20px;
+  z-index: 20;
+  display: none;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border: 1px solid rgba(100, 225, 255, 0.22);
+  border-radius: 999px;
+  background: rgba(2, 8, 20, 0.80);
+  color: #dff8ff;
+  backdrop-filter: blur(14px);
+}
+
+body.show-controls .controls { display: flex; }
+.controls button {
+  border: 0;
+  border-radius: 999px;
+  padding: 7px 12px;
+  background: rgba(82, 211, 255, 0.14);
+  color: inherit;
+  cursor: pointer;
+}
+.controls input { width: 118px; accent-color: #45e2f0; }
+.controls .name { max-width: 220px; font-size: 12px; opacity: 0.76; }
+
+body.chromeless .controls { display: none !important; }
+
+@media (max-width: 820px) {
+  #scene { inset: -5%; }
+  #source-art { object-position: 12% center; }
+  .shade {
+    background:
+      linear-gradient(180deg, rgba(0, 3, 10, 0.05), transparent 52%, rgba(0, 2, 8, 0.58)),
+      linear-gradient(90deg, rgba(0, 3, 10, 0.08), transparent 70%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #scene { transform: none !important; }
+  #relation-layer, #star-field, #beta-field, #time-layer { opacity: 0.18 !important; }
+  #earth-texture { transform: none !important; }
+}
+
+
+/* 方案 A 终稿：地球保持输入图中的静止状态。 */
+#earth-texture,
+#earth-sheen,
+#spatial-grid {
+  display: none !important;
+}
+</style>
+</head>
+<body data-variant="A_FINAL">
+  <main id="bstvc-background">
+    <div id="scene">
+      <img id="source-art" src="./assets/embedded-image-004.png" alt="">
+      
+<svg id="motion-overlay" viewBox="0 0 1672 941" preserveAspectRatio="none"
+     role="img" aria-label="BSTVC beta ribbon, spatial earth and temporal moon phases">
+  <defs>
+    <clipPath id="earth-clip"><circle cx="474" cy="691" r="244"/></clipPath>
+    <radialGradient id="moon-glow">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.58"/>
+      <stop offset="0.34" stop-color="#7deaff" stop-opacity="0.24"/>
+      <stop offset="1" stop-color="#5e62ff" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="earth-sheen-gradient">
+      <stop offset="0" stop-color="#baf8ff" stop-opacity="0.26"/>
+      <stop offset="0.48" stop-color="#4bcbea" stop-opacity="0.09"/>
+      <stop offset="1" stop-color="#1d68ff" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="flow-gradient" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#ff965f" stop-opacity="0.84"/>
+      <stop offset="0.46" stop-color="#a34ef3" stop-opacity="0.76"/>
+      <stop offset="1" stop-color="#39e5ee" stop-opacity="0.92"/>
+    </linearGradient>
+    <linearGradient id="particle-gradient" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffd4a5"/>
+      <stop offset="0.5" stop-color="#c277ff"/>
+      <stop offset="1" stop-color="#59eff4"/>
+    </linearGradient>
+    <filter id="node-glow" x="-180%" y="-180%" width="460%" height="460%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="soft-glow" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="10"/>
+    </filter>
+  </defs>
+
+  <g id="star-field"></g>
+
+  <image id="earth-texture" href="./assets/embedded-image-004.png" x="0" y="0" width="1672" height="941"
+         preserveAspectRatio="none" clip-path="url(#earth-clip)"/>
+  <ellipse id="earth-sheen" cx="424" cy="648" rx="108" ry="224"
+           fill="url(#earth-sheen-gradient)" clip-path="url(#earth-clip)" opacity="0.22"/>
+
+  <g id="spatial-grid" clip-path="url(#earth-clip)" opacity="0.4">
+    <circle cx="474" cy="691" r="238" fill="none" stroke="#62e8ff" stroke-opacity="0.26" stroke-width="2"/>
+    <ellipse cx="474" cy="691" rx="222" ry="66" fill="none" stroke="#57dfff" stroke-opacity="0.26" stroke-width="1.4"/>
+    <ellipse cx="474" cy="691" rx="222" ry="128" fill="none" stroke="#617eff" stroke-opacity="0.19" stroke-width="1.2"/>
+    <ellipse cx="474" cy="691" rx="76" ry="232" fill="none" stroke="#6eeaff" stroke-opacity="0.18" stroke-width="1.2"/>
+    <ellipse cx="474" cy="691" rx="148" ry="232" fill="none" stroke="#766cff" stroke-opacity="0.17" stroke-width="1.2"/>
+    <circle id="hotspot-a" cx="430" cy="625" r="38" fill="#4de8ef" opacity="0.18" filter="url(#soft-glow)"/>
+    <circle id="hotspot-b" cx="548" cy="760" r="30" fill="#9a50f3" opacity="0.15" filter="url(#soft-glow)"/>
+  </g>
+
+  <g id="relation-layer">
+    <path id="relation-path" pathLength="1"
+      d="M 34 936 C 96 792 94 532 136 334
+         C 176 146 404 178 486 266
+         C 552 338 510 430 398 498
+         C 292 562 246 646 278 732
+         C 326 858 526 886 704 782
+         C 890 674 1046 722 1200 782
+         C 1378 852 1518 744 1710 590"
+      fill="none" stroke="transparent"/>
+    <path id="relation-silhouette" pathLength="1"
+      d="M 34 936 C 96 792 94 532 136 334
+         C 176 146 404 178 486 266
+         C 552 338 510 430 398 498
+         C 292 562 246 646 278 732
+         C 326 858 526 886 704 782
+         C 890 674 1046 722 1200 782
+         C 1378 852 1518 744 1710 590"
+      fill="none" stroke="url(#flow-gradient)" stroke-width="15" stroke-linecap="round"
+      opacity="0.16" filter="url(#soft-glow)"/>
+    <path id="relation-sweep" pathLength="1"
+      d="M 34 936 C 96 792 94 532 136 334
+         C 176 146 404 178 486 266
+         C 552 338 510 430 398 498
+         C 292 562 246 646 278 732
+         C 326 858 526 886 704 782
+         C 890 674 1046 722 1200 782
+         C 1378 852 1518 744 1710 590"
+      fill="none" stroke="url(#flow-gradient)" stroke-width="8" stroke-linecap="round"
+      stroke-dasharray="0.18 0.82" stroke-dashoffset="1" opacity="0.4"
+      filter="url(#node-glow)"/>
+    <path id="relation-return" pathLength="1"
+      d="M 34 936 C 96 792 94 532 136 334
+         C 176 146 404 178 486 266
+         C 552 338 510 430 398 498
+         C 292 562 246 646 278 732
+         C 326 858 526 886 704 782
+         C 890 674 1046 722 1200 782
+         C 1378 852 1518 744 1710 590"
+      fill="none" stroke="#d9fbff" stroke-width="2.4" stroke-linecap="round"
+      stroke-dasharray="0.035 0.965" stroke-dashoffset="0.5" opacity="0.54"
+      filter="url(#node-glow)"/>
+    <circle class="relation-particle" data-index="0" cx="0" cy="0" r="4" fill="url(#particle-gradient)" filter="url(#node-glow)" opacity="0"/>
+<circle class="relation-particle" data-index="1" cx="0" cy="0" r="4" fill="url(#particle-gradient)" filter="url(#node-glow)" opacity="0"/>
+<circle class="relation-particle" data-index="2" cx="0" cy="0" r="4" fill="url(#particle-gradient)" filter="url(#node-glow)" opacity="0"/>
+<circle class="relation-particle" data-index="3" cx="0" cy="0" r="4" fill="url(#particle-gradient)" filter="url(#node-glow)" opacity="0"/>
+<circle class="relation-particle" data-index="4" cx="0" cy="0" r="4" fill="url(#particle-gradient)" filter="url(#node-glow)" opacity="0"/>
+<circle class="relation-particle" data-index="5" cx="0" cy="0" r="4" fill="url(#particle-gradient)" filter="url(#node-glow)" opacity="0"/>
+<circle class="relation-particle" data-index="6" cx="0" cy="0" r="4" fill="url(#particle-gradient)" filter="url(#node-glow)" opacity="0"/>
+<circle class="relation-particle" data-index="7" cx="0" cy="0" r="4" fill="url(#particle-gradient)" filter="url(#node-glow)" opacity="0"/>
+<circle class="relation-particle" data-index="8" cx="0" cy="0" r="4" fill="url(#particle-gradient)" filter="url(#node-glow)" opacity="0"/>
+<circle class="relation-particle" data-index="9" cx="0" cy="0" r="4" fill="url(#particle-gradient)" filter="url(#node-glow)" opacity="0"/>
+  </g>
+
+  <g id="time-layer">
+    <path id="time-axis" pathLength="1"
+      d="M 468 139 C 712 96 942 165 1102 305 C 1246 430 1340 492 1464 526"
+      fill="none" stroke="#879cff" stroke-opacity="0.14" stroke-width="1.5"
+      stroke-dasharray="0.025 0.035"/>
+    <g class="moon-actor" data-index="0" data-x="479" data-y="164"><circle class="moon-glow" cx="479" cy="164" r="24" fill="url(#moon-glow)" opacity="0"/><circle class="moon-halo" cx="479" cy="164" r="27" fill="none" stroke="#82e9ff" stroke-width="1.7" pathLength="1" stroke-dasharray="0.18 0.82" opacity="0"/><circle class="moon-spark" cx="479" cy="164" r="2.8" fill="#eafcff" filter="url(#node-glow)" opacity="0"/></g>
+<g class="moon-actor" data-index="1" data-x="612" data-y="153"><circle class="moon-glow" cx="612" cy="153" r="24" fill="url(#moon-glow)" opacity="0"/><circle class="moon-halo" cx="612" cy="153" r="27" fill="none" stroke="#82e9ff" stroke-width="1.7" pathLength="1" stroke-dasharray="0.18 0.82" opacity="0"/><circle class="moon-spark" cx="612" cy="153" r="2.8" fill="#eafcff" filter="url(#node-glow)" opacity="0"/></g>
+<g class="moon-actor" data-index="2" data-x="738" data-y="161"><circle class="moon-glow" cx="738" cy="161" r="24" fill="url(#moon-glow)" opacity="0"/><circle class="moon-halo" cx="738" cy="161" r="27" fill="none" stroke="#82e9ff" stroke-width="1.7" pathLength="1" stroke-dasharray="0.18 0.82" opacity="0"/><circle class="moon-spark" cx="738" cy="161" r="2.8" fill="#eafcff" filter="url(#node-glow)" opacity="0"/></g>
+<g class="moon-actor" data-index="3" data-x="856" data-y="197"><circle class="moon-glow" cx="856" cy="197" r="24" fill="url(#moon-glow)" opacity="0"/><circle class="moon-halo" cx="856" cy="197" r="27" fill="none" stroke="#82e9ff" stroke-width="1.7" pathLength="1" stroke-dasharray="0.18 0.82" opacity="0"/><circle class="moon-spark" cx="856" cy="197" r="2.8" fill="#eafcff" filter="url(#node-glow)" opacity="0"/></g>
+<g class="moon-actor" data-index="4" data-x="961" data-y="248"><circle class="moon-glow" cx="961" cy="248" r="24" fill="url(#moon-glow)" opacity="0"/><circle class="moon-halo" cx="961" cy="248" r="27" fill="none" stroke="#82e9ff" stroke-width="1.7" pathLength="1" stroke-dasharray="0.18 0.82" opacity="0"/><circle class="moon-spark" cx="961" cy="248" r="2.8" fill="#eafcff" filter="url(#node-glow)" opacity="0"/></g>
+<g class="moon-actor" data-index="5" data-x="1066" data-y="309"><circle class="moon-glow" cx="1066" cy="309" r="24" fill="url(#moon-glow)" opacity="0"/><circle class="moon-halo" cx="1066" cy="309" r="27" fill="none" stroke="#82e9ff" stroke-width="1.7" pathLength="1" stroke-dasharray="0.18 0.82" opacity="0"/><circle class="moon-spark" cx="1066" cy="309" r="2.8" fill="#eafcff" filter="url(#node-glow)" opacity="0"/></g>
+<g class="moon-actor" data-index="6" data-x="1153" data-y="368"><circle class="moon-glow" cx="1153" cy="368" r="24" fill="url(#moon-glow)" opacity="0"/><circle class="moon-halo" cx="1153" cy="368" r="27" fill="none" stroke="#82e9ff" stroke-width="1.7" pathLength="1" stroke-dasharray="0.18 0.82" opacity="0"/><circle class="moon-spark" cx="1153" cy="368" r="2.8" fill="#eafcff" filter="url(#node-glow)" opacity="0"/></g>
+<g class="moon-actor" data-index="7" data-x="1246" data-y="423"><circle class="moon-glow" cx="1246" cy="423" r="24" fill="url(#moon-glow)" opacity="0"/><circle class="moon-halo" cx="1246" cy="423" r="27" fill="none" stroke="#82e9ff" stroke-width="1.7" pathLength="1" stroke-dasharray="0.18 0.82" opacity="0"/><circle class="moon-spark" cx="1246" cy="423" r="2.8" fill="#eafcff" filter="url(#node-glow)" opacity="0"/></g>
+<g class="moon-actor" data-index="8" data-x="1338" data-y="475"><circle class="moon-glow" cx="1338" cy="475" r="24" fill="url(#moon-glow)" opacity="0"/><circle class="moon-halo" cx="1338" cy="475" r="27" fill="none" stroke="#82e9ff" stroke-width="1.7" pathLength="1" stroke-dasharray="0.18 0.82" opacity="0"/><circle class="moon-spark" cx="1338" cy="475" r="2.8" fill="#eafcff" filter="url(#node-glow)" opacity="0"/></g>
+<g class="moon-actor" data-index="9" data-x="1432" data-y="505"><circle class="moon-glow" cx="1432" cy="505" r="24" fill="url(#moon-glow)" opacity="0"/><circle class="moon-halo" cx="1432" cy="505" r="27" fill="none" stroke="#82e9ff" stroke-width="1.7" pathLength="1" stroke-dasharray="0.18 0.82" opacity="0"/><circle class="moon-spark" cx="1432" cy="505" r="2.8" fill="#eafcff" filter="url(#node-glow)" opacity="0"/></g>
+  </g>
+
+  <g id="beta-field" font-family="Georgia, 'Times New Roman', serif" font-style="italic">
+    <text class="beta-node" data-index="0" x="115" y="330" font-size="28" fill="#5064d8" opacity="0">β</text>
+<text class="beta-node" data-index="1" x="210" y="188" font-size="34" fill="#5064d8" opacity="0">β</text>
+<text class="beta-node" data-index="2" x="365" y="60" font-size="28" fill="#5064d8" opacity="0">β</text>
+<text class="beta-node" data-index="3" x="715" y="420" font-size="52" fill="#5064d8" opacity="0">β</text>
+<text class="beta-node" data-index="4" x="915" y="650" font-size="72" fill="#5064d8" opacity="0">β</text>
+<text class="beta-node" data-index="5" x="1052" y="515" font-size="28" fill="#5064d8" opacity="0">β</text>
+<text class="beta-node" data-index="6" x="1138" y="250" font-size="24" fill="#5064d8" opacity="0">β</text>
+<text class="beta-node" data-index="7" x="1215" y="205" font-size="40" fill="#5064d8" opacity="0">β</text>
+<text class="beta-node" data-index="8" x="1298" y="300" font-size="52" fill="#5064d8" opacity="0">β</text>
+<text class="beta-node" data-index="9" x="1395" y="610" font-size="58" fill="#5064d8" opacity="0">β</text>
+<text class="beta-node" data-index="10" x="1518" y="740" font-size="48" fill="#5064d8" opacity="0">β</text>
+<text class="beta-node" data-index="11" x="1574" y="255" font-size="70" fill="#5064d8" opacity="0">β</text>
+  </g>
+
+  <circle id="energy-wave" cx="1460" cy="420" r="20" fill="none"
+          stroke="#5eefff" stroke-width="3" opacity="0"/>
+</svg>
+
+    </div>
+    <div class="shade"></div>
+  </main>
+  <div class="controls" aria-label="动效控制">
+    <span class="name">方案 A｜时空呼吸｜终稿</span>
+    <button id="toggle-play" type="button">暂停</button>
+    <input id="speed" type="range" min="0.2" max="2" step="0.05" value="1" aria-label="播放速度">
+    <span id="speed-value">1.00×</span>
+  </div>
+  <script>
+(() => {
+  "use strict";
+
+  const CONFIG = {"slug":"方案A时空呼吸","name":"方案 A｜时空呼吸｜终稿","subtitle":"地球静止；深空 β 显隐增强；单文件便携交付","duration":18000,"particleCount":3,"gridOpacity":0.22,"sweepOpacity":0.3,"flowOutlineOpacity":0.22,"betaOpacity":0.38,"betaCycles":2,"earthArcDeg":3.2,"moonEnergy":0.46,"starEnergy":0.34,"cameraMode":"static","gridDirection":0,"code":"A_FINAL"};
+  const TAU = Math.PI * 2;
+  const params = new URLSearchParams(location.search);
+  const seekTime = params.has("t") ? Number(params.get("t")) : null;
+  const staticMode = params.has("static");
+  const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  const scene = document.querySelector("#scene");
+  const sourceArt = document.querySelector("#source-art");
+  const overlay = document.querySelector("#motion-overlay");
+  const starField = document.querySelector("#star-field");
+  const earthTexture = document.querySelector("#earth-texture");
+  const earthSheen = document.querySelector("#earth-sheen");
+  const spatialGrid = document.querySelector("#spatial-grid");
+  const relationPath = document.querySelector("#relation-path");
+  const relationSilhouette = document.querySelector("#relation-silhouette");
+  const relationSweep = document.querySelector("#relation-sweep");
+  const relationReturn = document.querySelector("#relation-return");
+  const particles = [...document.querySelectorAll(".relation-particle")];
+  const timeAxis = document.querySelector("#time-axis");
+  const moonActors = [...document.querySelectorAll(".moon-actor")];
+  const moonGlows = [...document.querySelectorAll(".moon-glow")];
+  const moonHalos = [...document.querySelectorAll(".moon-halo")];
+  const moonSparks = [...document.querySelectorAll(".moon-spark")];
+  const betaNodes = [...document.querySelectorAll(".beta-node")];
+  const hotspotA = document.querySelector("#hotspot-a");
+  const hotspotB = document.querySelector("#hotspot-b");
+  const energyWave = document.querySelector("#energy-wave");
+
+  const random = (() => {
+    let seed = 20260727;
+    return () => {
+      seed = (seed * 1664525 + 1013904223) >>> 0;
+      return seed / 4294967296;
+    };
+  })();
+
+  const stars = Array.from({ length: 64 }, (_, index) => {
+    const circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+    circle.setAttribute("cx", (24 + random() * 1624).toFixed(2));
+    circle.setAttribute("cy", (24 + random() * 893).toFixed(2));
+    circle.setAttribute("r", (0.55 + random() * 1.45).toFixed(2));
+    circle.setAttribute("fill", index % 9 === 0 ? "#7defff" : "#ffffff");
+    circle.dataset.phase = String(random());
+    starField.appendChild(circle);
+    return circle;
+  });
+
+  const pathLength = relationPath.getTotalLength();
+  let playing = true;
+  let playbackRate = 1;
+  let startedAt = performance.now();
+  let pausedElapsed = 0;
+  let rafId = 0;
+
+  function updateViewport() {
+    const sourceWidth = 1672;
+    const sourceHeight = 941;
+    const viewportRatio = innerWidth / Math.max(1, innerHeight);
+    const sourceRatio = sourceWidth / sourceHeight;
+    if (viewportRatio < sourceRatio) {
+      const visibleWidth = sourceHeight * viewportRatio;
+      const focal = innerWidth <= 820 ? 0.12 : 0.5;
+      const left = (sourceWidth - visibleWidth) * focal;
+      overlay.setAttribute("viewBox", `${left.toFixed(3)} 0 ${visibleWidth.toFixed(3)} ${sourceHeight}`);
+      sourceArt.style.objectPosition = `${(focal * 100).toFixed(1)}% center`;
+    } else {
+      const visibleHeight = sourceWidth / viewportRatio;
+      const top = (sourceHeight - visibleHeight) * 0.5;
+      overlay.setAttribute("viewBox", `0 ${top.toFixed(3)} ${sourceWidth} ${visibleHeight.toFixed(3)}`);
+      sourceArt.style.objectPosition = "center";
+    }
+  }
+  updateViewport();
+  addEventListener("resize", updateViewport, { passive: true });
+
+  const wrap01 = value => ((value % 1) + 1) % 1;
+  const smoothPulse = distance => {
+    const value = Math.max(0, 1 - distance);
+    return value * value * (3 - 2 * value);
+  };
+
+  function renderAt(milliseconds) {
+    const loopMs = ((milliseconds % CONFIG.duration) + CONFIG.duration) % CONFIG.duration;
+    const p = loopMs / CONFIG.duration;
+    const wave = Math.sin(TAU * p);
+    const wave2 = Math.sin(TAU * (p + 0.25));
+    const breathe = 0.5 - 0.5 * Math.cos(TAU * p);
+
+    if (CONFIG.cameraMode === "static") {
+      scene.style.transform = "none";
+    } else if (CONFIG.cameraMode === "breathe") {
+      scene.style.transform = `translate3d(${(2.2 * wave).toFixed(3)}px, ${(-1.8 * wave2).toFixed(3)}px, 0) scale(${(1 + 0.006 * breathe).toFixed(6)})`;
+    } else if (CONFIG.cameraMode === "cinematic") {
+      scene.style.transform = `translate3d(${(9 * wave).toFixed(3)}px, ${(-5 * wave2).toFixed(3)}px, 0) scale(${(1.006 + 0.022 * breathe).toFixed(6)})`;
+    } else {
+      scene.style.transform = `scale(${(1 + 0.003 * breathe).toFixed(6)})`;
+    }
+
+    stars.forEach((star, index) => {
+      const phase = Number(star.dataset.phase);
+      const pulse = 0.5 + 0.5 * Math.sin(TAU * (p * (index % 3 + 1) + phase));
+      star.style.opacity = String(0.08 + CONFIG.starEnergy * pulse * pulse);
+    });
+
+    const earthAngle = CONFIG.earthArcDeg * wave;
+    const gridLag = CONFIG.gridDirection * 7.5 * Math.sin(TAU * (p + 0.09));
+    const gridAngle = earthAngle * 0.78 + gridLag;
+    earthTexture.setAttribute("transform", `rotate(${earthAngle.toFixed(4)} 474 691)`);
+    spatialGrid.setAttribute("transform", `rotate(${gridAngle.toFixed(4)} 474 691)`);
+    spatialGrid.style.opacity = String(CONFIG.gridOpacity * (0.72 + 0.28 * breathe));
+    earthSheen.setAttribute("transform", `translate(${(44 * wave2).toFixed(3)} 0) rotate(${(-0.36 * earthAngle).toFixed(3)} 474 691)`);
+    earthSheen.style.opacity = String(0.10 + 0.22 * (0.5 + 0.5 * wave2));
+
+    hotspotA.setAttribute("cx", (432 + 46 * Math.cos(TAU * p)).toFixed(3));
+    hotspotA.setAttribute("cy", (628 + 32 * Math.sin(TAU * p)).toFixed(3));
+    hotspotA.style.opacity = String(0.12 + 0.22 * breathe);
+    hotspotB.setAttribute("cx", (544 + 40 * Math.cos(TAU * (p + 0.43))).toFixed(3));
+    hotspotB.setAttribute("cy", (758 + 26 * Math.sin(TAU * (p + 0.43))).toFixed(3));
+    hotspotB.style.opacity = String(0.10 + 0.18 * (1 - breathe));
+
+    relationSilhouette.style.opacity = String(CONFIG.flowOutlineOpacity * (0.68 + 0.32 * breathe));
+    relationSweep.style.strokeDashoffset = String(1 - p);
+    relationSweep.style.opacity = String(CONFIG.sweepOpacity * (0.62 + 0.38 * Math.sin(Math.PI * breathe)));
+    relationReturn.style.strokeDashoffset = String(0.5 - 2 * p);
+    relationReturn.style.opacity = String(0.24 + 0.38 * CONFIG.sweepOpacity);
+
+    particles.forEach((particle, index) => {
+      if (index >= CONFIG.particleCount) {
+        particle.style.opacity = "0";
+        return;
+      }
+      const progress = wrap01(p + index / CONFIG.particleCount);
+      const point = relationPath.getPointAtLength(progress * pathLength);
+      const pulse = 0.5 + 0.5 * Math.sin(TAU * (progress * 2 + index * 0.17));
+      particle.setAttribute("cx", point.x.toFixed(3));
+      particle.setAttribute("cy", point.y.toFixed(3));
+      particle.setAttribute("r", (3.2 + 2.8 * pulse).toFixed(3));
+      const base = CONFIG.particleCount > 6 ? 0.72 : 0.48;
+      particle.style.opacity = String(base * (0.45 + 0.55 * pulse));
+    });
+
+    const phasePosition = p * moonGlows.length;
+    timeAxis.style.strokeDashoffset = String(1 - p);
+    timeAxis.style.strokeOpacity = String(0.10 + 0.18 * CONFIG.moonEnergy * (0.5 + 0.5 * wave));
+    moonActors.forEach((actor, index) => {
+      const glow = moonGlows[index];
+      const halo = moonHalos[index];
+      const spark = moonSparks[index];
+      let distance = Math.abs(phasePosition - index);
+      distance = Math.min(distance, moonGlows.length - distance);
+      const pulse = smoothPulse(distance);
+      const x = Number(actor.dataset.x);
+      const y = Number(actor.dataset.y);
+      const local = Math.sin(TAU * (p + index * 0.071));
+      const orbitAngle = TAU * (p * 2 + index / moonActors.length);
+      const orbitRadius = 28 + 4 * pulse;
+      actor.setAttribute("transform", `translate(0 ${(2.4 * local).toFixed(3)})`);
+      glow.setAttribute("r", (21 + 18 * pulse).toFixed(3));
+      glow.style.opacity = String(0.02 + CONFIG.moonEnergy * 0.72 * pulse);
+      halo.setAttribute("r", (25 + 5 * pulse).toFixed(3));
+      halo.style.strokeDashoffset = String(1 - wrap01(p * 2 + index / moonActors.length));
+      halo.style.opacity = String(CONFIG.moonEnergy * (0.05 + 0.56 * pulse));
+      spark.setAttribute("cx", (x + orbitRadius * Math.cos(orbitAngle)).toFixed(3));
+      spark.setAttribute("cy", (y + orbitRadius * Math.sin(orbitAngle)).toFixed(3));
+      spark.setAttribute("r", (1.6 + 2.2 * pulse).toFixed(3));
+      spark.style.opacity = String(CONFIG.moonEnergy * (0.04 + 0.80 * pulse));
+    });
+
+    betaNodes.forEach((node, index) => {
+      const local = Math.sin(TAU * (p + index * 0.083));
+      const fadePhase = wrap01(p * CONFIG.betaCycles + index * 0.173);
+      const fadeEnvelope = Math.sin(Math.PI * fadePhase) ** 2;
+      const softPresence = fadeEnvelope ** 1.65;
+      node.setAttribute("transform", `translate(${(8 * local).toFixed(3)} ${(-11 * local).toFixed(3)})`);
+      node.style.opacity = String(CONFIG.betaOpacity * (0.035 + 0.965 * softPresence));
+      node.style.filter = `blur(${(0.16 + 0.64 * (1 - softPresence)).toFixed(3)}px) drop-shadow(0 0 ${(4 + 13 * softPresence).toFixed(2)}px rgba(94, 126, 255, ${(0.12 + 0.38 * softPresence).toFixed(3)}))`;
+    });
+
+    if (CONFIG.cameraMode === "cinematic") {
+      energyWave.setAttribute("r", (24 + 250 * breathe).toFixed(3));
+      energyWave.style.opacity = String(0.42 * Math.sin(Math.PI * breathe) ** 2);
+    } else {
+      energyWave.style.opacity = "0";
+    }
+  }
+
+  function tick(now) {
+    if (!playing) return;
+    renderAt(pausedElapsed + (now - startedAt) * playbackRate);
+    rafId = requestAnimationFrame(tick);
+  }
+
+  function setPlaying(next) {
+    if (next === playing) return;
+    const button = document.querySelector("#toggle-play");
+    playing = next;
+    if (playing) {
+      startedAt = performance.now();
+      if (button) button.textContent = "暂停";
+      rafId = requestAnimationFrame(tick);
+    } else {
+      cancelAnimationFrame(rafId);
+      pausedElapsed += (performance.now() - startedAt) * playbackRate;
+      if (button) button.textContent = "播放";
+    }
+  }
+
+  function setPlaybackRate(next) {
+    const now = performance.now();
+    if (playing) {
+      pausedElapsed += (now - startedAt) * playbackRate;
+      startedAt = now;
+    }
+    playbackRate = Number(next);
+    const value = document.querySelector("#speed-value");
+    if (value) value.textContent = `${playbackRate.toFixed(2)}×`;
+  }
+
+  if (params.has("controls")) document.body.classList.add("show-controls");
+  document.querySelector("#toggle-play")?.addEventListener("click", () => setPlaying(!playing));
+  document.querySelector("#speed")?.addEventListener("input", event => setPlaybackRate(event.target.value));
+
+  window.__bstvcBackground = {
+    duration: CONFIG.duration,
+    variant: CONFIG.code,
+    renderAt,
+    setPlaying,
+    setPlaybackRate,
+  };
+  window.__p2mReady = false;
+
+  if (seekTime !== null && Number.isFinite(seekTime)) {
+    playing = false;
+    document.body.classList.add("chromeless");
+    renderAt(seekTime);
+    requestAnimationFrame(() => requestAnimationFrame(() => { window.__p2mReady = true; }));
+  } else if (staticMode || reducedMotion) {
+    playing = false;
+    document.body.classList.add("chromeless");
+    renderAt(0);
+    requestAnimationFrame(() => { window.__p2mReady = true; });
+  } else {
+    renderAt(0);
+    rafId = requestAnimationFrame(tick);
+    requestAnimationFrame(() => { window.__p2mReady = true; });
+  }
+})();
+</script>
+</body>
+</html>
