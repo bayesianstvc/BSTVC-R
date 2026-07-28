@@ -1,13 +1,11 @@
 ﻿
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# BSTVC <img src="man/Figure/R_logo.png" alt="BSTVC" align="right" height="160"/>
+# BSTVC <img src="man/Figure/R_logo.png" alt="BSTVC" align="right" height="96"/>
 
 <!-- badges: start -->
 
 ![Github](https://img.shields.io/badge/publish-2025_01_28-edddab)
-![download2](https://cranlogs.r-pkg.org/badges/grand-total/BSTVC)
-![download](https://cranlogs.r-pkg.org/badges/BSTVC)
 ![GitHub](https://img.shields.io/github/license/bayesianstvc/BSTVC)
 [![DOI](https://zenodo.org/badge/DOI/10.1016/j.ijdrr.2022.103078.svg)](https://doi.org/10.1016/j.ijdrr.2022.103078)
 
@@ -60,17 +58,15 @@ install.packages("INLA",repos=c(getOption("repos"),INLA="https://inla.r-inla-dow
 ```
 
 
-## Desktop applications and companion tools
+## BSTVC Desktop
+
+<a href="https://bayesianstvc.github.io/BSTVC-R/"><img src="man/Figure/BSTVC_desktop_logo.png" alt="BSTVC Desktop" align="right" height="104"/></a>
 
 ### Chinese desktop version — BSTVC Desktop (时空可解释工具)
 
 The Chinese desktop version, **BSTVC桌面版（时空可解释工具）**, provides a more accessible graphical workflow for spatiotemporal analysis and interpretation. Visit the [official website](https://bayesianstvc.github.io/BSTVC-R/) for the latest introduction and access information.
 
 The English desktop version is coming soon — stay tuned.
-
-### INLA Process Monitor
-
-[INLA Process Monitor](https://github.com/bayesianstvc/inla-monitor) is a Windows companion tool for monitoring live inla.exe resource usage and comparing CPU, memory, and thread behavior. It helps users identify an appropriate thread setting and diagnose performance during Bayesian latent Gaussian model fitting. The tool runs locally and does not require a cloud service.
 
 ## Features & Advantages
 
@@ -135,6 +131,12 @@ provide new help documents.
 
 View detailed changelog: [CHANGELOG.md](./CHANGELOG.md)
 
+## Additional companion tool
+
+### INLA Process Monitor
+
+[INLA Process Monitor](https://github.com/bayesianstvc/inla-monitor) is a Windows companion tool for monitoring live inla.exe resource usage and comparing CPU, memory, and thread behavior. It helps users identify an appropriate thread setting and diagnose performance during Bayesian latent Gaussian model fitting. The tool runs locally and does not require a cloud service.
+
 ## Contact
 
 We welcome and encourage user contributions, including reporting issues,
@@ -156,7 +158,7 @@ Group**
 If you are a WeChat user, you are welcome to scan the QR code to follow
 our research group’s official account: **HealthGeography**
 
-<img src="man/Figure/wechat.png" alt="WeChat" align="center" height="180"/>
+<img src="man/Figure/wechat.png" alt="WeChat" align="center" height="120"/>
 
 ## Reference
 
