@@ -1,15 +1,14 @@
-
+﻿
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
 # BSTVC <img src="man/Figure/R_logo.png" alt="BSTVC" align="right" height="160"/>
 
 <!-- badges: start -->
 
-![CRAN](https://www.r-pkg.org/badges/version/BSTVC)
 ![Github](https://img.shields.io/badge/publish-2025_01_28-edddab)
 ![download2](https://cranlogs.r-pkg.org/badges/grand-total/BSTVC)
 ![download](https://cranlogs.r-pkg.org/badges/BSTVC)
-![GitHub](https://img.shields.io/github/license/songbi123/BSTVC)
+![GitHub](https://img.shields.io/github/license/bayesianstvc/BSTVC)
 [![DOI](https://zenodo.org/badge/DOI/10.1016/j.ijdrr.2022.103078.svg)](https://doi.org/10.1016/j.ijdrr.2022.103078)
 
 <!-- badges: end -->
@@ -31,11 +30,11 @@ only supports local installation from GitHub.
 ``` r
 # Install using the devtools package
 # install.packages("devtools")
-devtools::install_github("songbi123/BSTVC")
+devtools::install_github("bayesianstvc/BSTVC")
 
 # Install using the remotes package
 # install.packages("remotes")
-remotes::install_github("songbi123/BSTVC")
+remotes::install_github("bayesianstvc/BSTVC")
 ```
 
 **- Install the dependency package - the `INLA` R package**
@@ -59,6 +58,19 @@ install.packages("INLA",repos=c(getOption("repos"),INLA="https://inla.r-inla-dow
 
 ## Another approach, using an older version of INLA, is to download the compressed package of the INLA R package to your local machine and then proceed with the installation.
 ```
+
+
+## Desktop applications and companion tools
+
+### Chinese desktop version — BSTVC Desktop (时空可解释工具)
+
+The Chinese desktop version, **BSTVC桌面版（时空可解释工具）**, provides a more accessible graphical workflow for spatiotemporal analysis and interpretation. Visit the [official website](https://bayesianstvc.github.io/BSTVC-R/) for the latest introduction and access information.
+
+The English desktop version is coming soon — stay tuned.
+
+### INLA Process Monitor
+
+[INLA Process Monitor](https://github.com/bayesianstvc/inla-monitor) is a Windows companion tool for monitoring live inla.exe resource usage and comparing CPU, memory, and thread behavior. It helps users identify an appropriate thread setting and diagnose performance during Bayesian latent Gaussian model fitting. The tool runs locally and does not require a cloud service.
 
 ## Features & Advantages
 
@@ -113,7 +125,7 @@ guides, as follows:
 
 | Guide | Details |
 |----|----|
-| **User’s Guide for the BSTVC R Package** | This usage guide covers detailed example operations and important considerations for each key step, including data import, inspection, preprocessing, model fitting, result output and result visualization. You can view it in the `GetStart.Rmd` document under the `vignettes` folder, but it’s in R markdown format. <br><br>If you want to download the help document in PDF format, please click [here](https://github.com/songbi123/BSTVC/raw/songbi123-useguides/GetStart.pdf), the filename is [GetStart-English.pdf](https://github.com/songbi123/BSTVC/raw/songbi123-useguides/GetStart.pdf). At the same time, to meet the needs of Chinese users, we have also provided a Chinese version of the usage guide, which can be downloaded and saved locally by visiting [用户手册-中文版.pdf](https://github.com/songbi123/BSTVC/raw/songbi123-useguides/GetStart-Chinese.pdf). |
+| **User’s Guide for the BSTVC R Package** | This usage guide covers detailed example operations and important considerations for each key step, including data import, inspection, preprocessing, model fitting, result output and result visualization. You can view it in the `GetStart.Rmd` document under the `vignettes` folder, but it’s in R markdown format. <br><br>If you want to download the help document in PDF format, please click [here](https://github.com/bayesianstvc/BSTVC/raw/songbi123-useguides/GetStart.pdf), the filename is [GetStart-English.pdf](https://github.com/bayesianstvc/BSTVC/raw/songbi123-useguides/GetStart.pdf). At the same time, to meet the needs of Chinese users, we have also provided a Chinese version of the usage guide, which can be downloaded and saved locally by visiting [用户手册-中文版.pdf](https://github.com/bayesianstvc/BSTVC/raw/songbi123-useguides/GetStart-Chinese.pdf). |
 | **Modeling Data Processing Guide** | This usage guide demonstrates how to import the types of data required for the model and how to transform the raw data into the spatiotemporal panel data format that can be processed by the BSTVC model. The R code for achieving data processing for modeling is located in the `Data_Preproc.R` file under the `data-raw` folder. |
 
 In the near future, we will continue to refine our documentation and
@@ -132,7 +144,7 @@ you can get support through the following means:
 
 1.  **GitHub issues**: Report issues or request new features in
     theGitHub repository, please visit
-    [Issues](https://github.com/songbi123/BSTVC/issues).
+    [Issues](https://github.com/bayesianstvc/BSTVC/issues).
 2.  **Email contact**: <tangxxxxt@163.com>(Tang Xianteng, related to R
     package usage); <chaosong.gis@gmail.com> (Song Chao, related to
     statistical theory)
