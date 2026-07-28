@@ -1,70 +1,124 @@
-
+﻿
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# BSTVC <img src="man/Figure/R_logo.png" alt="BSTVC" align="right" height="160"/>
+# BSTVC <img src="man/Figure/R_logo.png" alt="BSTVC" align="right" height="96"/>
 
 <!-- badges: start -->
 
-![CRAN](https://www.r-pkg.org/badges/version/BSTVC)
 ![Github](https://img.shields.io/badge/publish-2025_01_28-edddab)
-![download2](https://cranlogs.r-pkg.org/badges/grand-total/BSTVC)
-![download](https://cranlogs.r-pkg.org/badges/BSTVC)
-![GitHub](https://img.shields.io/github/license/songbi123/BSTVC)
+![GitHub](https://img.shields.io/github/license/bayesianstvc/BSTVC)
 [![DOI](https://zenodo.org/badge/DOI/10.1016/j.ijdrr.2022.103078.svg)](https://doi.org/10.1016/j.ijdrr.2022.103078)
 
 <!-- badges: end -->
 
-**Spatiotemporal heterogeneous perspective for analyzing influencing
-factors, identifying key drivers, and making dynamic predictions, all
-within a unified ‘full-map’ framework.**
+**A powerful tool for ante-hoc spatiotemporal interpretable analysis.**
+
+**Spatiotemporal heterogeneous perspective for analyzing local
+influencing factors (local spatiotemporal interpretability), identifying
+key global factors (global spatiotemporal interpretability), and making
+dynamic predictions, all within a unified ‘full-map’ framework.**
+
+<p align="center">
+  <img src="man/Figure/BSTVC_full_map_framework.webp" alt="BSTVC full-map framework for local and global spatiotemporal interpretability and dynamic prediction" width="100%"/>
+</p>
+
+<p align="center"><em>BSTVC unifies local spatiotemporal interpretability, global spatiotemporal interpretability, and dynamic prediction within a Bayesian full-map framework.</em></p>
+
+## Scientific overview
+
+BSTVC is a Bayesian modeling framework for investigating spatiotemporal
+heterogeneity in relationships between an outcome and its potential
+determinants. It is designed for research questions that require more than
+overall association estimates: the framework characterizes where and when
+local effects vary, evaluates the relative contribution of candidate factors
+at the global level, and supports prediction under changing spatiotemporal
+conditions. By integrating these analytical targets within one coherent
+workflow, BSTVC helps researchers connect local variation, global attribution,
+and predictive inference while retaining parameter uncertainty. The framework
+is applicable to spatiotemporal panel and areal data in public health,
+medical geography, environmental research, and related fields.
+
+### Interpretability framework
+
+- **Ante-hoc spatiotemporal interpretability** means that interpretability is
+  built into the statistical model through explicitly estimated parameters,
+  rather than approximated after fitting an opaque predictive model.
+- **Local spatiotemporal interpretability** describes how the direction and
+  magnitude of a variable's association with the outcome vary across space
+  and time.
+- **Global spatiotemporal interpretability** evaluates the overall importance
+  of candidate factors in explaining spatiotemporal variation.
+- **Full-map framework** refers to the unified analysis of local effects,
+  global factor importance, and dynamic prediction across the complete
+  study domain.
 
 <!-- The BSTVC package offers a comprehensive and unified "full-map" geographic modeling framework designed to accurately capture spatiotemporal disparities in variable relationships. Its primary goal is to uncover spatiotemporal heterogeneous impacts of multiple explanatory variables on the target variable, i.e., spatiotemporal nonstationarity (Song et al., 2019, 2020, 2022; Wan et al., 2022).  -->
 <!-- Our BSTVC package is user-friendly, catering to the in-depth needs of professionals while lowering the barriers to complex Bayesian modeling. This makes advanced Bayesian local spatiotemporal regression methods accessible to a broader user community, enabling easier analysis and interpretation of complex spatiotemporal panel data. It is applicable across a wide range of disciplines, including but not limited to public health, medical geography, environmental health, health economics, and social medicine (Song and Tang, 2025). -->
 
 ## Installation
 
-**- Install the `BSTVC` R package**
+### Install the `BSTVC` R package
 
-The package is currently in the internal testing phase. At present, it
-only supports local installation from GitHub.
+Install BSTVC directly from GitHub:
 
 ``` r
 # Install using the devtools package
 # install.packages("devtools")
-devtools::install_github("songbi123/BSTVC")
+devtools::install_github("bayesianstvc/BSTVC")
 
 # Install using the remotes package
 # install.packages("remotes")
-remotes::install_github("songbi123/BSTVC")
+remotes::install_github("bayesianstvc/BSTVC")
 ```
 
-**- Install the dependency package - the `INLA` R package**
+### Install the `INLA` dependency
 
-When installing the `BSTVC` package in RStudio, the system will prompt
-you to install additional R packages that come with it. However, since
-`INLA` is a larger package, installing the `BSTVC` package might lead to
-a failure. To avoid this issue, we provide a separate method for
-installing the `INLA` package for your reference.
-
-If the installation of the `BSTVC` package in the previous step failed,
-please install the `BSTVC` package after successfully installing the
-`INLA` package. If you have successfully installed the `INLA` package
-while installing the `BSTVC` package, you can skip this step.
+BSTVC uses the `INLA` package for Bayesian latent Gaussian modeling. If
+`INLA` is not already available in your R environment, install it from
+the official INLA repository before installing BSTVC.
 
 ``` r
-## To install the INLA package, more information can be found at <https://www.r-inla.org/download-install>.
-# Extend the overtime duration to 5 minutes
+# Installation details: <https://www.r-inla.org/download/>
+# Extend the download timeout to 5 minutes
 options(timeout = 300)
-install.packages("INLA",repos=c(getOption("repos"),INLA="https://inla.r-inla-download.org/R/stable"), dep=TRUE)
-
-## Another approach, using an older version of INLA, is to download the compressed package of the INLA R package to your local machine and then proceed with the installation.
+install.packages(
+  "INLA",
+  repos = c(
+    getOption("repos"),
+    INLA = "https://inla.r-inla-download.org/R/stable"
+  ),
+  dependencies = TRUE
+)
 ```
 
-## Features & Advantages
+
+## BSTVC Desktop
+
+<a href="https://bayesianstvc.github.io/BSTVC-R/"><img src="man/Figure/BSTVC_desktop_logo_motion.webp" alt="Animated BSTVC Desktop logo" align="right" height="112"/></a>
+
+### Chinese desktop version — BSTVC Desktop (时空可解释工具)
+
+The Chinese desktop version, **BSTVC桌面版（时空可解释工具）**, provides a more accessible graphical workflow for spatiotemporal analysis and interpretation. Visit the [official website](https://bayesianstvc.github.io/BSTVC-R/) for the latest introduction and access information.
+
+The English desktop version is coming soon — stay tuned.
+
+## Scientific capabilities
 
 The `BSTVC` R package is designed to provide a comprehensive suite of
 functionalities for advanced spatiotemporal heterogeneous analysis.
-Here’s what our package can do for you:
+Its principal scientific capabilities include:
+
+### Model families and scientific outputs
+
+| Analytical target | Supported model or output |
+|:--|:--|
+| Continuous response | Log-Gaussian regression |
+| Binary response | Logistic regression |
+| Count response | Poisson regression |
+| Local interpretation | Spatiotemporally varying coefficient estimates |
+| Global interpretation | Explainable-percentage and key-factor assessment |
+| Prediction | Spatiotemporal smoothing, missing-value imputation, and forecasting |
+| Model assessment | DIC, WAIC, effective number of parameters (pD), and logarithmic score (LS) |
 
 - **Targeting multiple types of response variables**: It supports three
   mainstream types of response variables: continuous (log-Gaussian
@@ -81,14 +135,14 @@ Here’s what our package can do for you:
 - **Identifying spatiotemporal driving factors**: On the basis of
   identifying spatiotemporal heterogeneous impact mechanisms, it
   clarifies key driving factors by calculating the spatiotemporal
-  explainable percentage, providing strong evidence for geographical
+  explainable percentage, supporting geographical
   spatiotemporal attribution.
 
-- **Improving spatiotemporal prediction accuracy**: Considering the
-  spatiotemporal heterogeneity of local variable relationships, it
-  significantly improves model fitting and prediction accuracy, which
-  can be used for spatiotemporal missing value imputation,
-  spatiotemporal smoothing, and future forecasting.
+- **Supporting spatiotemporal prediction**: By accounting for
+  spatiotemporal heterogeneity in local variable relationships, the
+  framework can improve model fit and predictive performance when such
+  nonstationarity is present. It supports spatiotemporal missing-value
+  imputation, smoothing, and forecasting.
 
 - **Bayesian model assessment**: It provides a comprehensive evaluation
   of Bayesian regression models, including model fitting (DIC, WAIC),
@@ -97,13 +151,12 @@ Here’s what our package can do for you:
 
 - **Rich visualization outputs**: It provides a variety of
   spatiotemporal visualization tools and codes to help users intuitively
-  understand model results, enhance the interpretability of data
-  analysis, and promote innovation in your applied research.
+  examine model results and communicate spatiotemporal patterns and
+  uncertainty in applied research.
 
-Bayesian STVC model is a powerful analytical tool with many advantages
-that other similar tools lack, such as **a *“full-map” modeling
-framework*, *parameter uncertainty*, *friendliness to missing values*,
-and *support for more spatial weight matrices***, among others.
+The BSTVC framework integrates a **full-map modeling strategy, Bayesian
+parameter uncertainty, support for missing values, and flexible spatial
+weight matrices** within a unified analytical workflow.
 
 ## Usage Guide
 
@@ -113,7 +166,7 @@ guides, as follows:
 
 | Guide | Details |
 |----|----|
-| **User’s Guide for the BSTVC R Package** | This usage guide covers detailed example operations and important considerations for each key step, including data import, inspection, preprocessing, model fitting, result output and result visualization. You can view it in the `GetStart.Rmd` document under the `vignettes` folder, but it’s in R markdown format. <br><br>If you want to download the help document in PDF format, please click [here](https://github.com/songbi123/BSTVC/raw/songbi123-useguides/GetStart.pdf), the filename is [GetStart-English.pdf](https://github.com/songbi123/BSTVC/raw/songbi123-useguides/GetStart.pdf). At the same time, to meet the needs of Chinese users, we have also provided a Chinese version of the usage guide, which can be downloaded and saved locally by visiting [用户手册-中文版.pdf](https://github.com/songbi123/BSTVC/raw/songbi123-useguides/GetStart-Chinese.pdf). |
+| **User’s Guide for the BSTVC R Package** | This usage guide covers detailed example operations and important considerations for each key step, including data import, inspection, preprocessing, model fitting, result output and result visualization. You can view it in the `GetStart.Rmd` document under the `vignettes` folder, but it’s in R markdown format. <br><br>If you want to download the help document in PDF format, please click [here](https://github.com/bayesianstvc/BSTVC/raw/songbi123-useguides/GetStart.pdf), the filename is [GetStart-English.pdf](https://github.com/bayesianstvc/BSTVC/raw/songbi123-useguides/GetStart.pdf). At the same time, to meet the needs of Chinese users, we have also provided a Chinese version of the usage guide, which can be downloaded and saved locally by visiting [用户手册-中文版.pdf](https://github.com/bayesianstvc/BSTVC/raw/songbi123-useguides/GetStart-Chinese.pdf). |
 | **Modeling Data Processing Guide** | This usage guide demonstrates how to import the types of data required for the model and how to transform the raw data into the spatiotemporal panel data format that can be processed by the BSTVC model. The R code for achieving data processing for modeling is located in the `Data_Preproc.R` file under the `data-raw` folder. |
 
 In the near future, we will continue to refine our documentation and
@@ -123,6 +176,21 @@ provide new help documents.
 
 View detailed changelog: [CHANGELOG.md](./CHANGELOG.md)
 
+## Project status and governance
+
+- **Maintenance status**: Actively maintained. Bug reports and feature
+  requests are reviewed through [GitHub Issues](https://github.com/bayesianstvc/BSTVC/issues).
+- **Contributing**: Please read the [Contribution Guide](./CONTRIBUTING.md)
+  before proposing code, documentation, examples, or scientific validation.
+- **Community standards**: Participation in the project is governed by the
+  [Code of Conduct](./CODE_OF_CONDUCT.md).
+
+## Additional companion tool
+
+### INLA Process Monitor
+
+[INLA Process Monitor](https://github.com/bayesianstvc/inla-monitor) is a Windows companion tool for monitoring live inla.exe resource usage and comparing CPU, memory, and thread behavior. It helps users identify an appropriate thread setting and diagnose performance during Bayesian latent Gaussian model fitting. The tool runs locally and does not require a cloud service.
+
 ## Contact
 
 We welcome and encourage user contributions, including reporting issues,
@@ -130,12 +198,11 @@ requesting new features, or submitting code changes. If you encounter
 any problems when using the BSTVC package or need further assistance,
 you can get support through the following means:
 
-1.  **GitHub issues**: Report issues or request new features in
-    theGitHub repository, please visit
-    [Issues](https://github.com/songbi123/BSTVC/issues).
-2.  **Email contact**: <tangxxxxt@163.com>(Tang Xianteng, related to R
-    package usage); <chaosong.gis@gmail.com> (Song Chao, related to
-    statistical theory)
+1.  **GitHub Issues**: Report reproducible software problems or request new
+    features through the [BSTVC issue tracker](https://github.com/bayesianstvc/BSTVC/issues).
+2.  **Email**: Contact [Xianteng Tang](mailto:tangxxxxt@163.com) for package
+    usage questions, or [Chao Song](mailto:chaosong.gis@gmail.com) for
+    questions concerning statistical methodology.
 3.  **Bayesian STVC model**: <https://chaosong.blog/bayesian-stvc/>
 
 Copyright **©HEOA-West China Health and Medical Geography Research
@@ -144,31 +211,30 @@ Group**
 If you are a WeChat user, you are welcome to scan the QR code to follow
 our research group’s official account: **HealthGeography**
 
-<img src="man/Figure/wechat.png" alt="WeChat" align="center" height="180"/>
+<img src="man/Figure/wechat.png" alt="WeChat" align="center" height="120"/>
 
-## Reference
+## References
 
-- **\[Bayesian STVC series models\]** Song, Chao, Yin, Hao, Shi, Xun,
-  Xie, Mingyu, Yang, Shujuan, Zhou, Junmin, Wang, Xiuli, Tang,
-  Zhangying, Yang, Yili, & Pan, Jay. (2022). Spatiotemporal disparities
-  in regional public risk perception of COVID-19 using Bayesian
-  Spatiotemporally Varying Coefficients (STVC) series models across
-  Chinese cities. *International Journal of Disaster Risk Reduction*,
-  77, 103078.
+- **Bayesian STVC series models:** Song, C., Yin, H., Shi, X., Xie, M.,
+  Yang, S., Zhou, J., Wang, X., Tang, Z., Yang, Y., & Pan, J. (2022).
+  Spatiotemporal disparities in regional public risk perception of
+  COVID-19 using Bayesian spatiotemporally varying coefficients (STVC)
+  series models across Chinese cities. *International Journal of Disaster
+  Risk Reduction, 77*, 103078.
 
-- **\[STVPI\]** Wan, Qin, Tang, Zhangying, Pan, Jay, Xie, Mingyu, Wang,
-  Shaobin, Yin, Hao, Li, Junmin, Liu, Xin, Yang, Yang, & Song, Chao.
-  (2022). Spatiotemporal heterogeneity in associations of national
-  population ageing with socioeconomic and environmental factors at the
-  global scale. *Journal of Cleaner Production*, 373, 133781.
+- **STVPI:** Wan, Q., Tang, Z., Pan, J., Xie, M., Wang, S., Yin, H.,
+  Li, J., Liu, X., Yang, Y., & Song, C. (2022). Spatiotemporal
+  heterogeneity in associations of national population ageing with
+  socioeconomic and environmental factors at the global scale.
+  *Journal of Cleaner Production, 373*, 133781.
 
-- Song, Chao, Shi, Xun, & Wang, Jinfeng. (2020). Spatiotemporally
-  Varying Coefficients (STVC) model: a Bayesian local regression to
-  detect spatial and temporal nonstationarity in variables
-  relationships. *Annals of GIS*, 26(3), 277-291.
+- Song, C., Shi, X., & Wang, J. (2020). Spatiotemporally varying
+  coefficients (STVC) model: A Bayesian local regression to detect
+  spatial and temporal nonstationarity in variable relationships.
+  *Annals of GIS, 26*(3), 277–291.
 
-- Song, Chao, Shi, Xun, Bo, Yanchen, Wang, Jinfeng, Wang, Yong, & Huang,
-  Dacang. (2019). Exploring Spatiotemporal Nonstationary Effects of
-  Climate Factors on Hand, Foot, and Mouth Disease Using Bayesian
-  Spatiotemporally Varying Coefficients (STVC) Model in Sichuan, China.
-  *Science of The Total Environment*, 648, 550-560.
+- Song, C., Shi, X., Bo, Y., Wang, J., Wang, Y., & Huang, D. (2019).
+  Exploring spatiotemporal nonstationary effects of climate factors on
+  hand, foot, and mouth disease using a Bayesian spatiotemporally varying
+  coefficients (STVC) model in Sichuan, China. *Science of the Total
+  Environment, 648*, 550–560.
