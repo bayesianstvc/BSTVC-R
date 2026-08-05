@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>BSTVC 匿名访问地图</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <style>
+    *{box-sizing:border-box}html,body,#map{width:100%;height:100%;margin:0;overflow:hidden;background:#071923}
+    body{font-family:"Noto Sans SC","Microsoft YaHei",Arial,sans-serif}
+    #map{position:relative;z-index:2}
+    .fallback-world{position:absolute;z-index:1;inset:0;background:radial-gradient(circle at 58% 42%,#49d6c414 0 1px,transparent 2px) 0 0/27px 23px,linear-gradient(145deg,#071923,#0b2933);transition:opacity .5s ease}
+    .fallback-world::before{content:"";position:absolute;inset:16% 6%;opacity:.3;background:#7cd7ce;clip-path:polygon(1% 40%,8% 24%,18% 27%,25% 12%,35% 20%,43% 13%,51% 25%,61% 17%,70% 28%,80% 22%,91% 38%,98% 34%,92% 54%,82% 58%,76% 76%,66% 69%,58% 84%,49% 71%,40% 78%,31% 62%,22% 72%,13% 60%,5% 63%);filter:drop-shadow(0 0 18px #55d7c637)}
+    body.is-live-map .fallback-world{opacity:0;pointer-events:none}
+    .leaflet-container{background:#071923;font:10px/1.35 Arial,sans-serif}
+    .leaflet-tile{filter:saturate(.42) brightness(.52) contrast(1.16) hue-rotate(125deg)}
+    .leaflet-control-attribution{color:#7d999a!important;background:#071923b8!important;font-size:7px!important}.leaflet-control-attribution a{color:#86c7c0!important}
+    .leaflet-control-zoom{border:1px solid #6dd7c33b!important}.leaflet-control-zoom a{color:#9fe4da!important;background:#08212bcf!important;border-color:#6dd7c326!important}
+    .visitor-focus-ring{animation:visitorRing .95s cubic-bezier(.2,.8,.2,1) forwards}
+    @keyframes visitorRing{0%{stroke-opacity:.8;fill-opacity:.12}100%{stroke-opacity:0;fill-opacity:0}}
+    @media (prefers-reduced-motion:reduce){.visitor-focus-ring{animation:none}}
+  </style>
+</head>
+<body>
+  <div class="fallback-world" aria-hidden="true"></div>
+  <div id="map" role="img" aria-label="匿名访问位置聚合地图"></div>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script>
+    (() => {
+      let map = null;
+      let visitorLayer = null;
+      let pendingPoints = [];
+      const normalizePoint = (point) => ({
+        lat: Number(point.lat ?? point.latitude),
+        lng: Number(point.lng ?? point.lon ?? point.longitude),
+        count: Math.max(1, Number(point.count ?? point.visits ?? point.value ?? 1))
+      });
+      const renderPoints = (points) => {
+        pendingPoints = Array.isArray(points) ? points.map(normalizePoint).filter((point) => Number.isFinite(point.lat) && Number.isFinite(point.lng)) : [];
+        if (!map || !visitorLayer) return;
+        visitorLayer.clearLayers();
+        pendingPoints.forEach((point) => {
+          const radius = Math.max(4, Math.min(17, 4 + Math.log10(point.count + 1) * 4.2));
+          const marker = L.circleMarker([point.lat, point.lng], {
+            radius,
+            color: "#c9fff4",
+            weight: 1,
+            opacity: .84,
+            fillColor: "#49d7c4",
+            fillOpacity: .46
+          }).addTo(visitorLayer);
+          marker.on("click", () => {
+            const ring = L.circleMarker([point.lat, point.lng], {
+              radius: radius + 9,
+              color: "#92f6e8",
+              weight: 1,
+              opacity: .72,
+              fillColor: "#49d7c4",
+              fillOpacity: .08,
+              className: "visitor-focus-ring",
+              interactive: false
+            }).addTo(visitorLayer);
+            window.setTimeout(() => visitorLayer.removeLayer(ring), 1000);
+          });
+        });
+      };
+      const initialize = () => {
+        if (!window.L) return;
+        map = L.map("map", {
+          center: [20, 12],
+          zoom: 1.35,
+          minZoom: 1,
+          maxZoom: 6,
+          zoomSnap: .25,
+          zoomDelta: .5,
+          scrollWheelZoom: false,
+          worldCopyJump: true,
+          attributionControl: true
+        });
+        L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+          maxZoom: 19,
+          attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noreferrer">OpenStreetMap</a>'
+        }).addTo(map);
+        visitorLayer = L.layerGroup().addTo(map);
+        document.body.classList.add("is-live-map");
+        renderPoints(pendingPoints);
+      };
+      window.addEventListener("message", (event) => {
+        if (event.source !== window.parent || event.data?.type !== "bstvc:visitor-points") return;
+        renderPoints(event.data.points);
+      });
+      initialize();
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#071923">
+  <title>BSTVC 在线用户手册 · 中文版</title>
+  <style>
+    :root{color-scheme:dark;--ink:#071923;--teal:#5ad8c6;--text:#e8f5f0;--muted:#9ab7b5}
+    *{box-sizing:border-box}html,body{height:100%;margin:0;background:var(--ink);font-family:"Noto Sans SC","Microsoft YaHei",Arial,sans-serif}
+    .guide-shell{position:relative;isolation:isolate;height:100%;display:grid;grid-template-rows:auto 1fr;background:#071923;overflow:hidden}.guide-shell::before{content:"";position:absolute;z-index:-1;inset:-4%;background-image:linear-gradient(135deg,#071923e8,#0b2630dc 54%,#071923ef),url("./bstvc-background-fallback.png");background-size:cover;background-position:center;filter:saturate(.7) brightness(.68);animation:guideBreath 18s ease-in-out infinite alternate}
+    .guide-bar{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:13px clamp(14px,3vw,42px);border-bottom:1px solid #8be3d51f;background:#071923d9;backdrop-filter:blur(12px);z-index:2}
+    .guide-brand{display:flex;align-items:center;gap:11px;min-width:0}.guide-brand img{width:28px;height:28px;object-fit:contain;border-radius:7px}.guide-brand strong{font-size:13px;letter-spacing:.08em;white-space:nowrap}.guide-brand small{display:block;color:var(--muted);font-size:10px;margin-top:2px}
+    .guide-actions{display:flex;align-items:center;justify-content:flex-end;gap:8px;min-width:0}.guide-actions a,.guide-actions button{border:1px solid #78d8ca42;color:var(--text);padding:8px 11px;font-family:inherit;font-size:10px;line-height:1.2;text-decoration:none;white-space:nowrap;background:transparent;cursor:pointer}.guide-actions a:hover,.guide-actions button:hover{border-color:var(--teal);color:var(--teal)}.guide-search{display:flex;align-items:center;min-width:0;border:1px solid #78d8ca42;background:#04151e80}.guide-search:focus-within{border-color:var(--teal)}.guide-search input{width:168px;min-width:0;border:0;outline:0;padding:8px 9px;color:var(--text);background:transparent;font:inherit;font-size:10px;line-height:1.2}.guide-search input::placeholder{color:#789694}.guide-search button{border:0!important;border-left:1px solid #78d8ca2e!important;padding:8px 9px!important;color:var(--teal)!important}
+    .guide-frame{width:100%;height:100%;border:0;background:#fff;display:block}
+    .quick-start-popover{position:absolute;right:clamp(12px,3vw,42px);top:62px;width:min(360px,calc(100% - 24px));padding:18px;background:#0a2732f5;border:1px solid #70d9ca55;box-shadow:0 18px 45px #00121e80;z-index:3}.quick-start-popover[hidden]{display:none}.quick-start-popover span{color:var(--teal);letter-spacing:.14em;font:8px/1.3 Arial,sans-serif}.quick-start-popover h2{margin:7px 0 10px;color:var(--text);font-size:17px}.quick-start-popover ol{margin:0;padding-left:19px;color:#b9d2d0;font-size:11px;line-height:1.85}.quick-start-popover li::marker{color:var(--teal)}
+    @keyframes guideBreath{0%{transform:scale(1);opacity:.62}100%{transform:scale(1.035);opacity:.82}}
+    @media (max-width:900px){.guide-bar{flex-wrap:wrap}.guide-actions{width:100%;justify-content:flex-start;overflow-x:auto}.guide-search{flex:1 0 190px}.guide-search input{width:100%}}
+    @media (max-width:560px){.guide-bar{padding:10px 12px;gap:9px}.guide-brand small{display:none}.guide-actions a,.guide-actions button{padding:7px 8px;font-size:9px}.guide-actions>a:last-child{display:none}.quick-start-popover{top:96px}.guide-search{order:-1;flex-basis:100%}}
+    @media (prefers-reduced-motion:reduce){.guide-shell::before{animation:none}}
+  </style>
+</head>
+<body>
+  <main class="guide-shell">
+    <header class="guide-bar">
+      <div class="guide-brand"><img src="./bstvc-favicon.png" alt="BSTVC"><div><strong>BSTVC / 在线用户手册</strong><small>贝叶斯时空变系数 · 中文桌面版 2026.7</small></div></div>
+      <nav class="guide-actions" aria-label="用户手册操作"><label class="guide-search"><input id="guide-search-input" type="search" autocomplete="off" placeholder="搜索章节或关键词" aria-label="搜索用户手册章节"><button type="button" id="guide-search-button">搜索</button></label><button type="button" id="quick-start-toggle" aria-expanded="false">5分钟快速开始</button><button type="button" id="guide-top-button">回到目录 ↑</button><a href="../index.html">返回 BSTVC 官网</a><a href="./bstvc-user-guide-source-2026.7.html" target="_blank" rel="noreferrer">单独打开原始手册 ↗</a></nav>
+    </header>
+    <aside class="quick-start-popover" id="quick-start-popover" hidden><span>5 MIN QUICK START / 5分钟快速开始</span><h2>用四步完成第一次 BSTVC 建模</h2><ol><li>准备 CSV / XLSX 数据与完整 Shapefile 文件集合。</li><li>核对空间顺序、唯一标识、Time 字段与 Space 字段。</li><li>按响应变量分布选择连续型、二分类或计数型模型。</li><li>从默认 6 线程开始运行，检查系数、可信区间与模型评价输出。</li></ol></aside>
+    <iframe class="guide-frame" src="./bstvc-user-guide-source-2026.7.html" title="BSTVC 桌面端中文版在线用户手册"></iframe>
+  </main>
+  <script>
+    const frame = document.querySelector('.guide-frame');
+    const quickButton = document.querySelector('#quick-start-toggle');
+    const quickPanel = document.querySelector('#quick-start-popover');
+    const topButton = document.querySelector('#guide-top-button');
+    const searchInput = document.querySelector('#guide-search-input');
+    const searchButton = document.querySelector('#guide-search-button');
+    let searchQuery = '';
+    let searchMatches = [];
+    let searchIndex = -1;
+    quickButton?.addEventListener('click', () => {
+      const open = quickPanel.hasAttribute('hidden');
+      quickPanel.toggleAttribute('hidden', !open);
+      quickButton.setAttribute('aria-expanded', String(open));
+    });
+    topButton?.addEventListener('click', () => {
+      try {
+        const guideDocument = frame.contentDocument;
+        const contents = guideDocument?.querySelector('.toc, [class*="toc"], nav');
+        if (contents) contents.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        else frame.contentWindow.scrollTo({ top: 0, behavior: 'smooth' });
+      } catch (_) { frame.contentWindow.scrollTo(0, 0); }
+    });
+    const runGuideSearch = () => {
+      const query = searchInput?.value.trim() || '';
+      if (!query) return searchInput?.focus();
+      try {
+        if (query !== searchQuery) {
+          const candidates = Array.from(frame.contentDocument.querySelectorAll('h1, h2, h3, h4, .toc a, .toc-l1, .toc-l2'));
+          searchMatches = candidates.filter((item) => item.textContent.toLocaleLowerCase().includes(query.toLocaleLowerCase()));
+          searchQuery = query;
+          searchIndex = -1;
+        }
+        if (!searchMatches.length) {
+          searchButton.textContent = '无结果';
+          window.setTimeout(() => { searchButton.textContent = '搜索'; }, 1200);
+          return;
+        }
+        searchIndex = (searchIndex + 1) % searchMatches.length;
+        const target = searchMatches[searchIndex];
+        target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        target.animate([
+          { backgroundColor: 'rgba(90,216,198,0)', outlineColor: 'rgba(90,216,198,0)' },
+          { backgroundColor: 'rgba(90,216,198,.18)', outlineColor: 'rgba(90,216,198,.55)' },
+          { backgroundColor: 'rgba(90,216,198,0)', outlineColor: 'rgba(90,216,198,0)' }
+        ], { duration: 1100, easing: 'ease-out' });
+        searchButton.textContent = `${searchIndex + 1}/${searchMatches.length}`;
+      } catch (_) {
+        searchButton.textContent = '不可搜索';
+      }
+    };
+    searchButton?.addEventListener('click', runGuideSearch);
+    searchInput?.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter') { event.preventDefault(); runGuideSearch(); }
+    });
+  </script>
+</body>
+</html>
