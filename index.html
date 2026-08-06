@@ -567,9 +567,10 @@
   if (downloadActions) {
     downloadActions.innerHTML = `
       <a class="download-resource-card download-resource-primary" data-resource="DOWNLOAD" href="https://pan.baidu.com/s/5h7zSPjXEvBINShxLVLjirA" target="_blank" rel="noreferrer">
-        <span class="download-resource-meta"><i>01</i><b>DESKTOP</b><em>ZIP</em></span>
-        <strong>BSTVC 中文桌面版</strong>
+        <span class="download-resource-meta"><i>01</i><b>DIRECT DOWNLOAD</b><em>ZIP</em></span>
+        <strong>下载 BSTVC 中文桌面版</strong>
         <p>Windows 10/11 · 安装包、中文手册与三类真实案例</p>
+        <span class="download-resource-url">pan.baidu.com/s/5h7zSPjXEvBINShxLVLjirA</span>
         <span class="download-resource-action">百度网盘免费下载 <i>↗</i></span>
       </a>
       <a class="download-resource-card" data-online-guide data-resource="GUIDE" href="${onlineGuideHref}" target="_blank" rel="noreferrer">
@@ -586,7 +587,7 @@
       </a>`;
     const packagePanel = downloadActions.closest(".download-inner")?.querySelector(".download-package");
     if (packagePanel && !packagePanel.querySelector(".download-app-preview")) {
-      packagePanel.insertAdjacentHTML("afterbegin", '<figure class="download-app-preview"><img src="./assets/bstvc-desktop-home-screenshot.png" alt="BSTVC 中文桌面版软件首页截图"><figcaption>BSTVC Desktop · 数据准备、模型配置与结果导出工作台</figcaption></figure>');
+      packagePanel.insertAdjacentHTML("afterbegin", '<figure class="download-app-preview download-app-preview-feature"><img src="./assets/bstvc-desktop-home-screenshot.png" alt="BSTVC 中文桌面版软件首页截图"><figcaption>BSTVC Desktop · 数据准备、模型配置与结果导出工作台</figcaption></figure>');
     }
   }
   const footer = document.querySelector(".footer");
@@ -644,7 +645,7 @@
     const visitMap = document.createElement("div");
     visitMap.className = "contact-visit-map";
     visitMap.setAttribute("aria-label", "BSTVC 匿名访问地图");
-    visitMap.innerHTML = `<div class="contact-map-head"><span>ANONYMOUS VISITOR MAP</span><small data-visitor-status>OFFLINE PREVIEW / 未连接统计接口</small></div><iframe class="visitor-map-frame" data-visitor-map-frame src="./assets/bstvc-visitor-map.html" title="BSTVC 匿名访问热点地图" loading="lazy"></iframe><div class="contact-map-summary"><span>VISITORS</span><strong data-global-visitor-count>—</strong><small>访问人数</small></div><details class="visitor-privacy"><summary>统计接口隐私与匿名化说明</summary><p>正式接口只在服务端即时读取网络位置，并保存总量、日期和低精度坐标网格；不保存或返回原始 IP、姓名、精确地址和完整浏览轨迹。</p></details><p class="contact-map-note">地图底图联网加载；未配置匿名统计接口时仅展示底图，不生成示意访问点。</p>`;
+    visitMap.innerHTML = `<div class="contact-map-head"><span>ANONYMOUS VISITOR MAP</span><small data-visitor-status>OFFLINE PREVIEW / 未连接统计接口</small></div><iframe class="visitor-map-frame" data-visitor-map-frame src="./assets/bstvc-visitor-map.html" title="BSTVC 匿名访问热点地图" loading="lazy"></iframe><div class="contact-map-summary"><span>VISITORS</span><strong data-global-visitor-count>—</strong><small>访问人数</small></div>`;
     communityPanel.appendChild(visitMap);
   }
   const visitorStatus = document.querySelector("[data-visitor-status]");
@@ -665,7 +666,7 @@
       credentials: "omit",
       cache: "no-store",
       headers: { Accept: "application/json", "Content-Type": "application/json" },
-      body: JSON.stringify({ site: visitorSiteKey, event: "visit", version: "v37" })
+      body: JSON.stringify({ site: visitorSiteKey, event: "visit", version: "v38" })
     })
       .then((response) => response.ok ? response.json() : Promise.reject(new Error("visitor endpoint")))
       .then((payload) => {
@@ -787,4 +788,50 @@
 
 })();
 </script>
+<style id="v38-final-polish">
+/* V38 / quiet hero hierarchy, download-first layout and matched footer typography */
+.hero-credit{gap:clamp(14px,2.7vw,34px)!important;align-items:center!important}
+.hero-credit-tags{gap:9px!important}
+.hero-credit-tags i{font-size:clamp(12px,1.05vw,15px)!important;line-height:1.2!important;letter-spacing:.08em!important;padding:6px 10px!important;border-color:#a9e8de5c!important;background:#05192342!important}
+.hero-credit>span:not(.hero-credit-tags){font-size:clamp(11px,1vw,14px)!important;line-height:1.45!important;letter-spacing:.08em!important}
+.download-section .download-inner{grid-template-columns:minmax(130px,.28fr) minmax(0,1.24fr) minmax(300px,.82fr)!important;gap:clamp(18px,3.2vw,44px)!important;align-items:start!important}
+.download-section .download-copy{min-width:0!important;padding:clamp(18px,2.2vw,30px)!important;border:1px solid #8ee1d64b!important;border-radius:22px!important;background:linear-gradient(145deg,#ffffff10,#ffffff05)!important;box-shadow:0 26px 70px #00111f2b!important}
+.download-section .download-copy>p:not(.section-kicker){max-width:60ch!important;color:#bfd2d1!important;line-height:1.8!important}
+.download-section .download-actions{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:12px!important;margin-top:20px!important}
+.download-section .download-actions>.download-resource-card{min-height:156px!important;padding:19px!important;border-radius:18px!important;overflow:hidden!important}
+.download-section .download-actions>.download-resource-primary{grid-column:1/-1!important;min-height:185px!important;background:linear-gradient(118deg,#237e7bdc 0%,#174b62e6 55%,#29275cdb 100%)!important;box-shadow:0 20px 52px #071c2a70!important}
+.download-section .download-resource-meta{margin-bottom:14px!important;font-size:8px!important}
+.download-section .download-resource-card>strong{font-size:clamp(15px,1.25vw,18px)!important;line-height:1.35!important;overflow-wrap:anywhere!important}
+.download-section .download-resource-card>p{margin:8px 0 12px!important;font-size:10px!important;line-height:1.65!important;overflow-wrap:anywhere!important}
+.download-section .download-resource-url{display:block!important;max-width:100%!important;margin-top:1px!important;color:#d9fff5!important;font:500 clamp(8px,.72vw,10px)/1.45 ui-monospace,SFMono-Regular,Consolas,monospace!important;letter-spacing:.01em!important;overflow-wrap:anywhere!important;word-break:break-word!important}
+.download-section .download-resource-action{margin-top:13px!important;padding-top:11px!important}
+.download-section .download-package{min-width:0!important;padding:clamp(16px,2vw,23px)!important;border:1px solid #83dcd046!important;border-radius:20px!important;background:linear-gradient(160deg,#071d28d9,#0a1823c7)!important;box-shadow:0 24px 66px #00111f30!important}
+.download-section .download-app-preview{margin:-2px -2px 20px!important;border-color:#83dfd067!important;border-radius:16px!important;background:#071923!important;box-shadow:0 18px 42px #00111f55!important}
+.download-section .download-app-preview img{height:210px!important;max-height:none!important;object-fit:contain!important;object-position:center!important;padding:8px!important;background:linear-gradient(145deg,#0c2733,#071721)!important}
+.download-section .download-app-preview figcaption{padding:10px 12px!important;color:#b7d7d4!important;background:#0a2029!important;font-size:9px!important;line-height:1.5!important;letter-spacing:.04em!important}
+.download-section .download-package>span{color:#83dcd0!important;font-size:9px!important;letter-spacing:.18em!important}
+.download-section .download-package ul{margin-top:16px!important}
+.download-section .download-package li{overflow-wrap:anywhere!important;line-height:1.55!important}
+.footer-mission p,.footer-mission .footer-quiet-claim{font-size:13px!important;line-height:1.7!important;letter-spacing:0!important}
+@media (width<=900px){
+  .download-section .download-inner{grid-template-columns:1fr!important;gap:22px!important}
+  .download-section .download-brand{justify-content:flex-start!important}
+  .download-section .download-copy{order:2!important}
+  .download-section .download-package{order:3!important}
+  .download-section .download-app-preview img{height:auto!important;max-height:260px!important}
+}
+@media (width<=620px){
+  .hero-credit{align-items:flex-start!important;flex-direction:column!important;gap:10px!important}
+  .hero-credit-tags{flex-wrap:wrap!important}
+  .hero-credit-tags i{font-size:11px!important;padding:5px 8px!important}
+  .hero-credit>span:not(.hero-credit-tags){font-size:11px!important;letter-spacing:.04em!important}
+  .download-section .download-inner{width:min(100% - 28px,680px)!important;padding:64px 0!important}
+  .download-section .download-copy{padding:18px!important;border-radius:17px!important}
+  .download-section .download-actions{grid-template-columns:1fr!important;gap:10px!important}
+  .download-section .download-actions>.download-resource-primary{grid-column:auto!important;min-height:170px!important}
+  .download-section .download-actions>.download-resource-card{min-height:128px!important;padding:16px!important}
+  .download-section .download-app-preview img{max-height:205px!important;padding:5px!important}
+  .footer-mission p,.footer-mission .footer-quiet-claim{font-size:11px!important;line-height:1.65!important}
+}
+</style>
 </body></html>
