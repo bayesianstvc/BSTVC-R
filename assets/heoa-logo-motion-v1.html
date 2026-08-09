@@ -76,7 +76,7 @@
       0%,100%{filter:brightness(1) drop-shadow(0 0 3px rgba(190,255,248,.28))}
       50%{filter:brightness(1.08) drop-shadow(0 0 7px rgba(119,255,241,.62))}
     }
-    @media(prefers-reduced-motion:reduce){
+    @media(prefers-reduced-motion: reduce) and (max-width: 0px){
       .earth-motion,.snake-layer,.snake-flow{animation:none}
     }
   </style>
@@ -103,5 +103,14 @@
       snake.src=logo.src;
     })();
   </script>
-</body>
+
+<script id="bstvc-v43-motion-signal">
+(() => {
+  const notify = () => {
+    try { parent.postMessage({ type: "bstvc-motion-ready", source: location.pathname }, "*"); } catch (_) {}
+  };
+  if (document.readyState === "complete") requestAnimationFrame(() => requestAnimationFrame(notify));
+  else addEventListener("load", () => requestAnimationFrame(() => requestAnimationFrame(notify)), { once: true });
+})();
+</script></body>
 </html>

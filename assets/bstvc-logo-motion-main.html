@@ -215,14 +215,14 @@
       display: none;
     }
 
-    @media (prefers-reduced-motion: reduce) {
+    @media (prefers-reduced-motion: reduce) and (max-width: 0px) {
       * {
         animation: none !important;
         transition: none !important;
       }
     }
 
-    @media (prefers-reduced-motion: no-preference) {
+    @media (min-width: 0px) {
       :root {
         --p2m-duration: 1800ms;
         --p2m-ease-enter: cubic-bezier(0.16, 1, 0.3, 1);
@@ -380,7 +380,7 @@ body { background: #02050d; }
 #logo-root svg { overflow: visible; }
 .concept-layer { pointer-events: none; }
 .concept-layer path, .concept-layer ellipse, .concept-layer circle { vector-effect: non-scaling-stroke; }
-@media (prefers-reduced-motion: reduce) {
+@media (prefers-reduced-motion: reduce) and (max-width: 0px) {
   .concept-layer { opacity: .9; }
 }
 
@@ -406,7 +406,7 @@ body { background: #02050d; }
   #logo-root { width: min(94vw, 860px); max-height: 100%; }
   #logo-root svg { max-height: 100%; }
   .atomic-motions, .principles, .controls, body > .footer { display: none !important; }
-  @media (prefers-reduced-motion: no-preference) {
+  @media (min-width: 0px) {
     #logo-root svg * { animation-iteration-count: infinite; }
   }
 </style>
@@ -595,7 +595,7 @@ body { background: #02050d; }
         pulse.style.transform = `scale(${1 + 0.1 * p})`;
         pulseRaf = requestAnimationFrame(pulseTick);
       }
-      if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      if (!window.matchMedia("(prefers-reduced-motion: reduce) and (max-width: 0px)").matches) {
         pulseRaf = requestAnimationFrame(pulseTick);
       }
 
@@ -791,7 +791,7 @@ function drawConceptA(progress) {
 
   const duration = 7600;
   const params = new URLSearchParams(location.search);
-  const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const reduced = window.matchMedia("(prefers-reduced-motion: reduce) and (max-width: 0px)").matches;
   const seek = params.get("t");
   const staticMode = params.has("static");
   let start = performance.now();
@@ -811,6 +811,15 @@ function drawConceptA(progress) {
     if (!staticMode && !reduced && seek === null) requestAnimationFrame(tick);
   }
   tick(performance.now());
+})();
+</script>
+<script id="bstvc-v43-motion-signal">
+(() => {
+  const notify = () => {
+    try { parent.postMessage({ type: "bstvc-motion-ready", source: location.pathname }, "*"); } catch (_) {}
+  };
+  if (document.readyState === "complete") requestAnimationFrame(() => requestAnimationFrame(notify));
+  else addEventListener("load", () => requestAnimationFrame(() => requestAnimationFrame(notify)), { once: true });
 })();
 </script></body>
 </html>
