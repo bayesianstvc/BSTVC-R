@@ -1,0 +1,205 @@
+{
+  "version": "V41 local preview",
+  "generatedAt": "2026-08-06 20:30:29 +08:00",
+  "package": "20260806-BSTVC官网V41正式部署前本地完善-V01-离线包",
+  "totalBytes": 53374237,
+  "totalMiB": 50.9,
+  "indexSha256": "4e6036b5f88af664330d9c089c0ac65282cf2293d22b0d6957e28f28f64dbc98",
+  "files": [
+    {
+      "path": ".nojekyll",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "assets/bstvc-background-fallback.png",
+      "bytes": 1743928,
+      "sha256": "0b6bd23e62823b1a7be1e5ffc9e25a4f5778bed7de6fdfae1fabd172bf4840c5"
+    },
+    {
+      "path": "assets/bstvc-desktop-home-screenshot.png",
+      "bytes": 2597526,
+      "sha256": "dc6ff9eaf4156667bc0a8c4cbff18b2f990a59dd6e1f29ea39e198b15a401929"
+    },
+    {
+      "path": "assets/bstvc-dynamic-background.html",
+      "bytes": 4678943,
+      "sha256": "874ef6a64921035d0d2b11e3bffab36b77ac8cdd6a0d625c0f89b954af0af366"
+    },
+    {
+      "path": "assets/bstvc-favicon.ico",
+      "bytes": 14822,
+      "sha256": "d812c4bce40b1cab008c69ac0b3f692db479d3b7e501aeaff1f50f158bb5a0cc"
+    },
+    {
+      "path": "assets/bstvc-favicon.png",
+      "bytes": 5910,
+      "sha256": "2aa6b31e0bede2c88f769a4bce55a357a7d6f2c414e1f9035628559a267b1e94"
+    },
+    {
+      "path": "assets/bstvc-hero-texture.png",
+      "bytes": 1743928,
+      "sha256": "0b6bd23e62823b1a7be1e5ffc9e25a4f5778bed7de6fdfae1fabd172bf4840c5"
+    },
+    {
+      "path": "assets/bstvc-logo-circle.png",
+      "bytes": 504411,
+      "sha256": "14b8fec2c34bc3a4d721bd06729b140fdcd04ad5dfb7e245fa9325b303443f80"
+    },
+    {
+      "path": "assets/bstvc-logo-motion-main.html",
+      "bytes": 17294008,
+      "sha256": "cad324e4709f6a0ffcf0d41efae0b268715380c6432b0c7c2e3e44f748c4fb1f"
+    },
+    {
+      "path": "assets/bstvc-logo-rounded.png",
+      "bytes": 498152,
+      "sha256": "113a6b6783bfeb8d57eff429d49c00e0db90c4aadb998bc2711a0756b8258588"
+    },
+    {
+      "path": "assets/bstvc-user-guide-source-2026.7.html",
+      "bytes": 18871058,
+      "sha256": "422ab285efef925b9446584972ee212d8ed84245f3705fd433366b23357f937a"
+    },
+    {
+      "path": "assets/bstvc-user-guide.html",
+      "bytes": 8100,
+      "sha256": "0800f2bcf8a3d2c6f87065bb25203ac0004a7e1018b2aec4fa7f2ff1f40b7cba"
+    },
+    {
+      "path": "assets/bstvc-visitor-config.js",
+      "bytes": 318,
+      "sha256": "7eb5301bf31af5ccb6b390adb5228776ca7c1042ae994e0e788eb6d561802af4"
+    },
+    {
+      "path": "assets/bstvc-visitor-map.html",
+      "bytes": 4707,
+      "sha256": "9e1e73581a4b2037f1d0f4c95b495a86b1f18f1164467350e1524890231784ee"
+    },
+    {
+      "path": "assets/case-01-hfmd.webp",
+      "bytes": 81462,
+      "sha256": "841ebf2d29a909101aa4ca9ca8efede82b7913fc75f5c60d8ef443174496fef1"
+    },
+    {
+      "path": "assets/case-02-northeast-healthcare.webp",
+      "bytes": 149362,
+      "sha256": "69d4ab74439b78d7d270697227902bc1e550bb4b8d5f24e5b635b17604a1bc0e"
+    },
+    {
+      "path": "assets/case-03-southwest-beds.webp",
+      "bytes": 103202,
+      "sha256": "f0e158a8629942bd1b8d6fc91d89384ff0d289a8a8166d2f3b8c820fa11f11ba"
+    },
+    {
+      "path": "assets/case-04-tourism.webp",
+      "bytes": 212330,
+      "sha256": "bc1b0a91c60f298be57c2cd1b236551fd58d3b4a98af3eea14c1dee1afbccec2"
+    },
+    {
+      "path": "assets/case-05-covid.webp",
+      "bytes": 161986,
+      "sha256": "ff8bf62c8aa0d041eb7c65f551154ef9af65619dd0a6293c18a95aa707b11068"
+    },
+    {
+      "path": "assets/case-06-ageing.webp",
+      "bytes": 196614,
+      "sha256": "f418351324212ff5e6d7c01d59e927e4a03fcb405d137b882a8731f5f8b2457a"
+    },
+    {
+      "path": "assets/case-07-county-healthcare.webp",
+      "bytes": 118198,
+      "sha256": "356111a2c0b9dcda644f4efd970b0cc9d96bbe755900ef78a13e61ba8307325a"
+    },
+    {
+      "path": "assets/case-08-mmr.webp",
+      "bytes": 110334,
+      "sha256": "2bf7af4c6744a68285b75e6bfcbecafaadef6c5e7d6cf80a41ea51c8b1b5c5d1"
+    },
+    {
+      "path": "assets/case-09-city-healthcare.webp",
+      "bytes": 89570,
+      "sha256": "7083349c0ca9e99f3c1825d45a1a8608db9ae1ba2b70216f0c57a6d4a1a172b9"
+    },
+    {
+      "path": "assets/case-10-efficiency.webp",
+      "bytes": 203530,
+      "sha256": "b5cc590fe768f96cc9e3fe34dd66c070c137bf5b0246058b8cd6846fb026192e"
+    },
+    {
+      "path": "assets/case-11-hfmd-2025.webp",
+      "bytes": 102382,
+      "sha256": "f0a1092abfb24629c3a32932cbe89475d199b2014e27f9a303597e4bce34cd4e"
+    },
+    {
+      "path": "assets/case-12-maternal-u5mr.webp",
+      "bytes": 88334,
+      "sha256": "f5559e7eb2eb7db9441e1fdf4970abb28ccbf3a865424de282057b80bfd83b0a"
+    },
+    {
+      "path": "assets/healthgeography-team-logo-v1.png",
+      "bytes": 1202362,
+      "sha256": "74ec6fc48311da1b369803bec49b0a68638ae7f8bff520005d7166fb0dbc568d"
+    },
+    {
+      "path": "assets/healthgeography-wechat-qr-v2.png",
+      "bytes": 145505,
+      "sha256": "2466adb01c28537e2feca0cfc85a2744ae7899715caa34a543db216682ba33c4"
+    },
+    {
+      "path": "assets/heoa-logo-motion-v1.html",
+      "bytes": 1607467,
+      "sha256": "0fe289575bc0eb91fd8ff7fcc59b1d20c2b5ff8d2c658582612ac7f880169cd7"
+    },
+    {
+      "path": "assets/output-model-evaluation.webp",
+      "bytes": 37722,
+      "sha256": "ea3f0238a1cea9941727ff9abd56bde16a4b4db00f0a4257709762103478a0a9"
+    },
+    {
+      "path": "assets/output-prediction.webp",
+      "bytes": 53256,
+      "sha256": "03ed9e51c2e062539e732503eb0248424f66d58a2c75b412acea3d185f95d0ad"
+    },
+    {
+      "path": "assets/output-roc.webp",
+      "bytes": 27018,
+      "sha256": "089fea17f86e1d273570fd50d7c461c503ffc66283dfca3674babcc524637ff6"
+    },
+    {
+      "path": "assets/output-space-coefficients.webp",
+      "bytes": 66170,
+      "sha256": "f2b33566e7295647e18bbe0e01f3462fa549be99be613af4a75f00e0e333f531"
+    },
+    {
+      "path": "assets/output-stvpi.webp",
+      "bytes": 34036,
+      "sha256": "614ff78074d7085f2787b3381369afb0e02df3faac3008d8653a561370d7fd95"
+    },
+    {
+      "path": "assets/output-time-coefficients.webp",
+      "bytes": 34420,
+      "sha256": "066741ac8738d46d7294bf1411ba6f4c80c3cdd6b653db532e2134ce16f7f257"
+    },
+    {
+      "path": "assets/workflow-binary.webp",
+      "bytes": 48790,
+      "sha256": "68ec99f2ff9486e3a12043937ed627bec5f57d655e35f1969ed080fcc02a9fb9"
+    },
+    {
+      "path": "assets/workflow-continuous.webp",
+      "bytes": 43644,
+      "sha256": "f00f4573ef672c77849b5878887f774e1978419d278292e0eec3a16779040663"
+    },
+    {
+      "path": "assets/workflow-count.webp",
+      "bytes": 50574,
+      "sha256": "d0c7a88b2595e4d9b89d25327c3b4e1f9052de39418d2be6d088ea6784789172"
+    },
+    {
+      "path": "index.html",
+      "bytes": 440158,
+      "sha256": "4e6036b5f88af664330d9c089c0ac65282cf2293d22b0d6957e28f28f64dbc98"
+    }
+  ]
+}
