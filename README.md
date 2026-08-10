@@ -6,7 +6,7 @@
 <!-- badges: start -->
 
 ![Github](https://img.shields.io/badge/publish-2025_01_28-edddab)
-![GitHub](https://img.shields.io/github/license/bayesianstvc/BSTVC)
+![GitHub License](https://img.shields.io/github/license/bayesianstvc/BSTVC-R)
 [![DOI](https://zenodo.org/badge/DOI/10.1016/j.ijdrr.2022.103078.svg)](https://doi.org/10.1016/j.ijdrr.2022.103078)
 
 <!-- badges: end -->
@@ -175,6 +175,15 @@ provide new help documents.
 ## Changelog
 
 View detailed changelog: [CHANGELOG.md](./CHANGELOG.md)
+
+## License
+
+BSTVC-R is free for academic and other noncommercial use under the [PolyForm Noncommercial License 1.0.0](./LICENSE).
+
+Commercial use requires a separate commercial license from the copyright holder. Previous versions released under GPL-3.0 remain under their original license; this change applies to versions from this commit onward.
+
+**Free for academic and noncommercial use.**  
+**Commercial use requires a separate license.**
 
 ## Project status and governance
 

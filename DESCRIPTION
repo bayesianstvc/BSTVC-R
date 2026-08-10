@@ -16,7 +16,8 @@ Description: Providing a "full map" geographical modeling framework designed to 
     enabling a broader user base to easily apply advanced Bayesian spatiotemporal regression analysis methods to interpret and explain complex spatiotemporal panel data. 
     It is applicable to various fields involving geographical spatial data in natural and human sciences, including but not limited to public health, medical geography, environmental health, economics, and social medicine.
     For more detailed information on the developers and BSTVC series of models, users are directed to refer to the [Chao Song](https://chaosong.blog/) and [BSTVC]( https://chaosong.blog/bayesian-stvc/).
-License: GPL (>= 3)
+License: file LICENSE
+License_restricts_use: yes
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
