@@ -64,11 +64,11 @@ Install BSTVC directly from GitHub:
 ``` r
 # Install using the devtools package
 # install.packages("devtools")
-devtools::install_github("bayesianstvc/BSTVC")
+devtools::install_github("bayesianstvc/BSTVC-R")
 
 # Install using the remotes package
 # install.packages("remotes")
-remotes::install_github("bayesianstvc/BSTVC")
+remotes::install_github("bayesianstvc/BSTVC-R")
 ```
 
 ### Install the `INLA` dependency
@@ -92,15 +92,18 @@ install.packages(
 ```
 
 
-## BSTVC Desktop
+## BSTVC Desktop V2
 
-<a href="https://bayesianstvc.github.io/BSTVC-R/"><img src="man/Figure/BSTVC_desktop_logo_motion.webp" alt="Animated BSTVC Desktop logo" align="right" height="112"/></a>
+<a href="https://bayesianstvc.github.io/BSTVC-Desktop/v2/"><img src="man/Figure/BSTVC_desktop_logo_motion.webp" alt="Animated BSTVC Desktop logo" align="right" height="112"/></a>
 
-### Chinese desktop version — BSTVC Desktop (时空可解释工具)
+BSTVC Desktop provides a graphical Windows workflow for spatiotemporal analysis and interpretation. The **English Desktop V2 installer** (package date **26.10.25**) was released on **3 November 2026**.
 
-The Chinese desktop version, **BSTVC桌面版（时空可解释工具）**, provides a more accessible graphical workflow for spatiotemporal analysis and interpretation. Visit the [official website](https://bayesianstvc.github.io/BSTVC-R/) for the latest introduction and access information.
+- [Download English Desktop V2 for Windows x64](https://github.com/bayesianstvc/BSTVC-Desktop/releases/download/v2026.10.25/BSTVC_desktop_EN_win_x64_26.10.25_setup.exe).
+- [Release notes, SHA-256, and installation information](https://github.com/bayesianstvc/BSTVC-Desktop/releases/tag/v2026.10.25).
+- [English V2 update and three public case comparisons](https://bayesianstvc.github.io/BSTVC-Desktop/v2/).
+- [中文 V2 更新、案例与视频](https://bayesianstvc.github.io/BSTVC-Desktop/zh/v2/).
 
-The English desktop version is coming soon — stay tuned.
+V2 is a Desktop release; it does not change the version or scientific capabilities of this R package. The reported case comparisons concern 95% credible-interval widths and do not by themselves establish general accuracy or calibration.
 
 ## Scientific capabilities
 
@@ -166,7 +169,7 @@ guides, as follows:
 
 | Guide | Details |
 |----|----|
-| **User’s Guide for the BSTVC R Package** | This usage guide covers detailed example operations and important considerations for each key step, including data import, inspection, preprocessing, model fitting, result output and result visualization. You can view it in the `GetStart.Rmd` document under the `vignettes` folder, but it’s in R markdown format. <br><br>If you want to download the help document in PDF format, please click [here](https://github.com/bayesianstvc/BSTVC/raw/songbi123-useguides/GetStart.pdf), the filename is [GetStart-English.pdf](https://github.com/bayesianstvc/BSTVC/raw/songbi123-useguides/GetStart.pdf). At the same time, to meet the needs of Chinese users, we have also provided a Chinese version of the usage guide, which can be downloaded and saved locally by visiting [用户手册-中文版.pdf](https://github.com/bayesianstvc/BSTVC/raw/songbi123-useguides/GetStart-Chinese.pdf). |
+| **User’s Guide for the BSTVC R Package** | This usage guide covers detailed example operations and important considerations for each key step, including data import, inspection, preprocessing, model fitting, result output and result visualization. You can view it in the `GetStart.Rmd` document under the `vignettes` folder, but it’s in R markdown format. <br><br>If you want to download the help document in PDF format, please click [here](https://github.com/bayesianstvc/BSTVC-R/raw/songbi123-useguides/GetStart.pdf), the filename is [GetStart-English.pdf](https://github.com/bayesianstvc/BSTVC-R/raw/songbi123-useguides/GetStart.pdf). At the same time, to meet the needs of Chinese users, we have also provided a Chinese version of the usage guide, which can be downloaded and saved locally by visiting [用户手册-中文版.pdf](https://github.com/bayesianstvc/BSTVC-R/raw/songbi123-useguides/GetStart-Chinese.pdf). |
 | **Modeling Data Processing Guide** | This usage guide demonstrates how to import the types of data required for the model and how to transform the raw data into the spatiotemporal panel data format that can be processed by the BSTVC model. The R code for achieving data processing for modeling is located in the `Data_Preproc.R` file under the `data-raw` folder. |
 
 In the near future, we will continue to refine our documentation and
@@ -188,7 +191,7 @@ Commercial use requires a separate commercial license from the copyright holder.
 ## Project status and governance
 
 - **Maintenance status**: Actively maintained. Bug reports and feature
-  requests are reviewed through [GitHub Issues](https://github.com/bayesianstvc/BSTVC/issues).
+  requests are reviewed through [GitHub Issues](https://github.com/bayesianstvc/BSTVC-R/issues).
 - **Contributing**: Please read the [Contribution Guide](./CONTRIBUTING.md)
   before proposing code, documentation, examples, or scientific validation.
 - **Community standards**: Participation in the project is governed by the
@@ -198,7 +201,7 @@ Commercial use requires a separate commercial license from the copyright holder.
 
 ### INLA Process Monitor
 
-[INLA Process Monitor](https://github.com/bayesianstvc/inla-monitor) is a Windows companion tool for monitoring live inla.exe resource usage and comparing CPU, memory, and thread behavior. It helps users identify an appropriate thread setting and diagnose performance during Bayesian latent Gaussian model fitting. The tool runs locally and does not require a cloud service.
+[INLA Process Monitor](https://github.com/bayesianstvc/BSTVC-Monitor) is a Windows companion tool for monitoring live inla.exe resource usage and comparing CPU, memory, and thread behavior. It helps users identify an appropriate thread setting and diagnose performance during Bayesian latent Gaussian model fitting. The tool runs locally and does not require a cloud service.
 
 ## Contact
 
@@ -208,11 +211,11 @@ any problems when using the BSTVC package or need further assistance,
 you can get support through the following means:
 
 1.  **GitHub Issues**: Report reproducible software problems or request new
-    features through the [BSTVC issue tracker](https://github.com/bayesianstvc/BSTVC/issues).
+    features through the [BSTVC issue tracker](https://github.com/bayesianstvc/BSTVC-R/issues).
 2.  **Email**: Contact [Xianteng Tang](mailto:tangxxxxt@163.com) for package
     usage questions, or [Chao Song](mailto:chaosong.gis@gmail.com) for
     questions concerning statistical methodology.
-3.  **Bayesian STVC model**: <https://chaosong.blog/bayesian-stvc/>
+3.  **Chao Song homepage**: <https://chaosong.blog/>
 
 Copyright **©HEOA-West China Health and Medical Geography Research
 Group**
