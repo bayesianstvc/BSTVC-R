@@ -109,7 +109,7 @@ install.packages(
 
 <a href="https://bayesianstvc.github.io/BSTVC-Desktop/v2/"><img src="man/Figure/BSTVC_desktop_logo_motion.webp" alt="Animated BSTVC Desktop logo" align="right" height="112"/></a>
 
-BSTVC Desktop provides a graphical Windows workflow for spatiotemporal analysis and interpretation. The **English Desktop V2 installer** (package date **26.10.25**) was released on **3 November 2026**.
+BSTVC Desktop provides a graphical Windows workflow for spatiotemporal analysis and interpretation. The **English Desktop V2 installer** (package date **26.10.25**) was released on **4 November 2026**.
 
 - [Download English Desktop V2 for Windows x64](https://github.com/bayesianstvc/BSTVC-Desktop/releases/download/v2026.10.25/BSTVC_desktop_EN_win_x64_26.10.25_setup.exe).
 - [Release notes, SHA-256, and installation information](https://github.com/bayesianstvc/BSTVC-Desktop/releases/tag/v2026.10.25).
