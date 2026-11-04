@@ -1,4 +1,4 @@
-﻿
+
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
 # BSTVC <img src="man/Figure/R_logo.png" alt="BSTVC" align="right" height="96"/>
@@ -92,18 +92,17 @@ install.packages(
 ```
 
 
-## BSTVC Desktop V2
+## BSTVC Desktop V2 — release preparation
 
-<a href="https://bayesianstvc.github.io/BSTVC-Desktop/v2/"><img src="man/Figure/BSTVC_desktop_logo_motion.webp" alt="Animated BSTVC Desktop logo" align="right" height="112"/></a>
+<a href="https://bayesianstvc.github.io/BSTVC-Desktop/"><img src="man/Figure/BSTVC_desktop_logo_motion.webp" alt="Animated BSTVC Desktop logo" align="right" height="112"/></a>
 
-BSTVC Desktop provides a graphical Windows workflow for spatiotemporal analysis and interpretation. The **English Desktop V2 installer** (package date **26.10.25**) was released on **4 November 2026**.
+BSTVC Desktop provides a graphical Windows workflow for spatiotemporal analysis and interpretation. **Desktop V2 is in release preparation; installer publication is in progress.** The English Windows x64 installer has package date **26.10.25**. A public download will be announced on the Desktop website after publication is complete.
 
-- [Download English Desktop V2 for Windows x64](https://github.com/bayesianstvc/BSTVC-Desktop/releases/download/v2026.10.25/BSTVC_desktop_EN_win_x64_26.10.25_setup.exe).
-- [Release notes, SHA-256, and installation information](https://github.com/bayesianstvc/BSTVC-Desktop/releases/tag/v2026.10.25).
-- [English V2 update and three public case comparisons](https://bayesianstvc.github.io/BSTVC-Desktop/v2/).
-- [中文 V2 更新、案例与视频](https://bayesianstvc.github.io/BSTVC-Desktop/zh/v2/).
+- [Desktop website — publication updates](https://bayesianstvc.github.io/BSTVC-Desktop/).
+- [English V2 introduction — pending publication](https://bayesianstvc.github.io/BSTVC-Desktop/v2/).
+- [中文 V2 更新、案例与视频 — 待发布](https://bayesianstvc.github.io/BSTVC-Desktop/zh/v2/).
 
-V2 is a Desktop release; it does not change the version or scientific capabilities of this R package. The reported case comparisons concern 95% credible-interval widths and do not by themselves establish general accuracy or calibration.
+Desktop V2 is a separate product update; it does not change the version or scientific capabilities of this R package. The reported case comparisons concern 95% credible-interval widths and do not by themselves establish general accuracy or calibration.
 
 ## Scientific capabilities
 
