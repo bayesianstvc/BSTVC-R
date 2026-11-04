@@ -30,6 +30,10 @@ knitr::opts_chunk$set(
 
 **Spatiotemporal heterogeneous perspective for analyzing local influencing factors (local spatiotemporal interpretability), identifying key global factors (global spatiotemporal interpretability), and making dynamic predictions, all within a unified 'full-map' framework.**
 
+> **Companion release: BSTVC Desktop V2 — a separate Windows application.**
+> The three public case comparisons report case-level summaries of 95% regression-coefficient credible-interval widths that are about **94%–99% narrower for temporal coefficients** and **38%–98% narrower for spatial coefficients** than V1.
+> [Explore Desktop V2](https://bayesianstvc.github.io/BSTVC-Desktop/v2/) · [Download the English Windows edition](https://github.com/bayesianstvc/BSTVC-Desktop/releases/download/v2026.10.25/BSTVC_desktop_EN_win_x64_26.10.25_setup.exe). The BSTVC R package keeps its own version. These are reported width comparisons in three cases; narrower intervals alone do not establish greater accuracy or calibration.
+
 <p align="center">
   <img src="man/Figure/BSTVC_full_map_framework.webp" alt="BSTVC full-map framework for local and global spatiotemporal interpretability and dynamic prediction" width="100%"/>
 </p>
