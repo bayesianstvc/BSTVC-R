@@ -31,8 +31,10 @@ knitr::opts_chunk$set(
 **Spatiotemporal heterogeneous perspective for analyzing local influencing factors (local spatiotemporal interpretability), identifying key global factors (global spatiotemporal interpretability), and making dynamic predictions, all within a unified 'full-map' framework.**
 
 > **Companion release: BSTVC Desktop V2 — a separate Windows application.**
+>
+> [Desktop V2 user guides, six cases and R visualization downloads](https://github.com/bayesianstvc/BSTVC-Desktop/releases/tag/guides-cases-v2-2026.11.08).
 > The three public case comparisons report case-level summaries of 95% regression-coefficient credible-interval widths that are about **94%–99% narrower for temporal coefficients** and **38%–98% narrower for spatial coefficients** than V1.
-> [Explore Desktop V2](https://bayesianstvc.github.io/BSTVC-Desktop/v2/) · [Download the English Windows edition](https://github.com/bayesianstvc/BSTVC-Desktop/releases/download/v2026.10.25/BSTVC_desktop_EN_win_x64_26.10.25_setup.exe). The BSTVC R package keeps its own version. These are reported width comparisons in three cases; narrower intervals alone do not establish greater accuracy or calibration.
+> [Explore Desktop V2](https://bayesianstvc.github.io/BSTVC-Desktop/v2/) · [Download the English Windows edition](https://github.com/bayesianstvc/BSTVC-Desktop/releases/download/v2026.10.25/BSTVC_desktop_EN_win_x64_26.10.25_setup.exe).
 
 <p align="center">
   <img src="man/Figure/BSTVC_full_map_framework.webp" alt="BSTVC full-map framework for local and global spatiotemporal interpretability and dynamic prediction" width="100%"/>
@@ -90,9 +92,8 @@ remotes::install_github("bayesianstvc/BSTVC-R")
 
 ### Install the `INLA` dependency
 
-BSTVC uses the `INLA` package for Bayesian latent Gaussian modeling. If
-`INLA` is not already available in your R environment, install it from
-the official INLA repository before installing BSTVC.
+Install the `INLA` dependency from its official repository before installing
+the BSTVC R package if it is missing from your R environment.
 
 ``` r
 # Installation details: <https://www.r-inla.org/download/>
@@ -120,7 +121,7 @@ BSTVC Desktop provides a graphical Windows workflow for spatiotemporal analysis 
 - [English V2 update and three public case comparisons](https://bayesianstvc.github.io/BSTVC-Desktop/v2/).
 - [中文 V2 更新、案例与视频](https://bayesianstvc.github.io/BSTVC-Desktop/zh/v2/).
 
-V2 is a Desktop release; it does not change the version or scientific capabilities of this R package. The reported case comparisons concern 95% credible-interval widths and do not by themselves establish general accuracy or calibration.
+This repository provides the BSTVC R package, version 25.01.28.
 
 ## Scientific capabilities
 
@@ -215,9 +216,9 @@ Commercial use requires a separate commercial license from the copyright holder.
 
 ## Additional companion tool
 
-### INLA Process Monitor
+### BSTVC Monitor
 
-[INLA Process Monitor](https://github.com/bayesianstvc/BSTVC-Monitor) is a Windows companion tool for monitoring live inla.exe resource usage and comparing CPU, memory, and thread behavior. It helps users identify an appropriate thread setting and diagnose performance during Bayesian latent Gaussian model fitting. The tool runs locally and does not require a cloud service.
+[BSTVC Monitor](https://github.com/bayesianstvc/BSTVC-Monitor) is a local Windows companion tool for comparing CPU, memory, and thread usage across runs.
 
 ## Contact
 
