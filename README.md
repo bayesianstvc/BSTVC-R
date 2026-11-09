@@ -1,7 +1,7 @@
 ﻿
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# BSTVC <img src="man/Figure/R_logo.png" alt="BSTVC" align="right" height="96"/>
+# BSTVC-R · V1 research prototype <img src="man/Figure/R_logo.png" alt="BSTVC" align="right" height="96"/>
 
 <!-- badges: start -->
 
@@ -18,7 +18,9 @@ influencing factors (local spatiotemporal interpretability), identifying
 key global factors (global spatiotemporal interpretability), and making
 dynamic predictions, all within a unified ‘full-map’ framework.**
 
-> **Companion release: BSTVC Desktop V2 — a separate Windows application.**
+> **BSTVC-R is the earlier V1 research prototype.** This repository preserves the R workflow for reproducing earlier research. For the major upgrade and the latest workflow, download BSTVC Desktop V2 from the [English website](https://bayesianstvc.github.io/BSTVC-Desktop/) or [中文官网](https://bayesianstvc.github.io/BSTVC-Desktop/zh/).
+>
+> **BSTVC-R 是早期 V1 科研原型，供复现历史分析。当前推荐使用 [BSTVC Desktop V2](https://bayesianstvc.github.io/BSTVC-Desktop/zh/)，请前往官网下载安装。**
 >
 > [Desktop V2 user guides, six cases and R visualization downloads](https://github.com/bayesianstvc/BSTVC-Desktop/releases/tag/guides-cases-v2-2026.11.08).
 > The three public case comparisons report case-level summaries of 95% regression-coefficient credible-interval widths that are about **94%–99% narrower for temporal coefficients** and **38%–98% narrower for spatial coefficients** than V1.

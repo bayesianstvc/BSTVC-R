@@ -31,7 +31,9 @@ knitr::opts_chunk$set(
   )
 ```
 
-# Introduction of R package
+# Introduction of the V1 R prototype
+
+> **BSTVC-R is the earlier V1 research prototype.** This repository preserves the R workflow for reproducing earlier research. For the major upgrade and the latest workflow, download BSTVC Desktop V2 from the [English website](https://bayesianstvc.github.io/BSTVC-Desktop/) or [中文官网](https://bayesianstvc.github.io/BSTVC-Desktop/zh/).
 
 ![](../man/Figure/R_logo_pic.png){width="70%"}
 
@@ -41,7 +43,7 @@ The BSTVC package offers a comprehensive and unified "full-map" geographic model
 
 ## Theoretical foundation
 
-Spatiotemporal heterogeneous coupling analysis simultaneously considers spatiotemporal heterogeneity and spatiotemporal autocorrelation based on the two geographic laws and combines temporal and spatial dimensions within the same framework for coupled analysis. This approach is the most comprehensive, precise and evidence-based analysis concept in current geographic data analysis, far exceeding the traditional non-spatial analysis, single spatial or temporal analysis, as well as the spatial-temporal separation analysis methods.The BSTVC R package, as a cutting-edge and up-to-date tool for the analysis of spatiotemporal heterogeneous coupling, is based on the following statistical mechanisms.
+Spatiotemporal heterogeneous coupling analysis simultaneously considers spatiotemporal heterogeneity and spatiotemporal autocorrelation based on the two geographic laws and combines temporal and spatial dimensions within the same framework for coupled analysis. This approach is the most comprehensive, precise and evidence-based analysis concept in current geographic data analysis, far exceeding the traditional non-spatial analysis, single spatial or temporal analysis, as well as the spatial-temporal separation analysis methods.The V1 research prototype implements the published statistical methods described below.
 
 **Bayesian Spatiotemporally Varying Coefficients (BSTVC) model** is a class of local spatiotemporal regression based on Bayesian statistics ([\textcolor{blue}{\underline{Song et al., 2019}}](https://doi.org/10.1016/j.scitotenv.2018.08.114); [\textcolor{blue}{\underline{2020}}](https://doi.org/10.1080/19475683.2020.1782469); [\textcolor{blue}{\underline{2022}}](https://doi.org/10.1016/j.ijdrr.2022.103078)). A key advantage of this model is its ability to use a single "full-map" framework to uniformly capture spatiotemporal variations across all local regression coefficients. This enables precise identification of the spatiotemporal heterogeneous impacts of explanatory variables on the target variable, thereby revealing spatiotemporal nonstationarity. The Bayesian STVC series models, which currently include four sub-models (STVI, STIVI, STVC, and STIVC), offer a powerful tool for uncovering the complex spatiotemporal dynamics and influencing mechanisms affecting the target variable ([\textcolor{blue}{\underline{Song et al., 2022}}](https://doi.org/10.1016/j.ijdrr.2022.103078)).
 
