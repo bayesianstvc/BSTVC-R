@@ -6,7 +6,7 @@ validation, or code changes.
 
 ## Before contributing
 
-1. Search the [issue tracker](https://github.com/bayesianstvc/BSTVC/issues)
+1. Search the [issue tracker](https://github.com/bayesianstvc/BSTVC-R/issues)
    for an existing report or proposal.
 2. Open an issue before making a substantial change so that its scientific
    scope, expected behavior, and compatibility implications can be discussed.

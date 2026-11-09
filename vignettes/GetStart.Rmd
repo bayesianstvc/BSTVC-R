@@ -82,11 +82,11 @@ Currently, this package only supports local installation from GitHub, and the in
 ```{r eval=FALSE}
 # Install using the devtools package
 install.packages("devtools")                   # install the devtools package
-devtools::install_github("songbi123/BSTVC")    # install the BSTVC package
+devtools::install_github("bayesianstvc/BSTVC-R")    # install the BSTVC package
 
 # Install using the remotes package
 install.packages("remotes")                   # install the remotes package
-remotes::install_github("songbi123/BSTVC")    # install the BSTVC package
+remotes::install_github("bayesianstvc/BSTVC-R")    # install the BSTVC package
 ```
 
 ## Install dependency packages
@@ -1238,9 +1238,9 @@ beeswarm_data_BSVC <- data.frame(
 
 The BSTVC package will be updated from time to time to introduce new features and improvements. We welcome and encourage user contributions, including reporting issues, requesting new features, or submitting code changes. If you encounter any problems when using the BSTVC package or need further assistance, you can get support through the following means:
 
--   User Manual: Provides detailed model descriptions, installation guides, and examples. For Chinese, please visit [\textcolor{blue}{\underline{GetStart-Chinese}}](https://github.com/songbi123/BSTVC/raw/songbi123-useguides/GetStart-Chinese.pdf). For English, please visit [\textcolor{blue}{\underline{GetStart-English}}](https://github.com/songbi123/BSTVC/raw/songbi123-useguides/GetStart.pdf).
+-   User Manual: Provides detailed model descriptions, installation guides, and examples. For Chinese, please visit [\textcolor{blue}{\underline{GetStart-Chinese}}](https://github.com/bayesianstvc/BSTVC-R/raw/songbi123-useguides/GetStart-Chinese.pdf). For English, please visit [\textcolor{blue}{\underline{GetStart-English}}](https://github.com/bayesianstvc/BSTVC-R/raw/songbi123-useguides/GetStart.pdf).
 
--   GitHub Issues: Report issues or request new features in the GitHub repository, please visit [\textcolor{blue}{\underline{Issues}}](https://github.com/songbi123/BSTVC/issues).
+-   GitHub Issues: Report issues or request new features in the GitHub repository, please visit [\textcolor{blue}{\underline{Issues}}](https://github.com/bayesianstvc/BSTVC-R/issues).
 
 -   Email Contact: [tangxxxxt\@163.com](mailto:tangxxxxt@163.com) (Tang Xianteng, related to R package usage); [chaosong.gis\@gmail.com](mailto:chaosong.gis@gmail.com) (Song Chao, related to statistical theory)
 
